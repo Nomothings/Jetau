@@ -1,0 +1,13 @@
+{
+  "task": "webshop",
+  "checkpoint": "../../checkpoints/NanoJev-unified",
+  "test": "../../data/benchmarks/webshop/test.jsonl",
+  "n_episodes": 500,
+  "n_steps_evaluated": 1618,
+  "skipped_overlong": 0,
+  "step_acc": 0.4511742892459827,
+  "random_baseline": 0.1672443035174397,
+  "mean_candidates": 5.9792768959435625,
+  "ms_per_step": 445.50617747595913,
+  "steps_per_sec": 2.244637786316584
+}

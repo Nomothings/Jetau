@@ -1,0 +1,85 @@
+{
+  "arm": "memory-bptt",
+  "config": {
+    "checkpoint": "../checkpoints/NanoJev-unified",
+    "data_dir": "data",
+    "task": "grid-snake",
+    "compact": true,
+    "out": "runs/c3_grid_snake",
+    "steps": 300,
+    "episodes_per_update": 1,
+    "bptt_window": 4,
+    "max_train_steps": 40,
+    "backbone_lr": 1e-05,
+    "head_lr": 0.0001,
+    "eval_every": 25,
+    "eval_episodes": 24,
+    "seed": 17,
+    "mem_fraction": 0.92
+  },
+  "initial_dev_ce": 1.3442283934088812,
+  "best_step": 100,
+  "best_dev_ce": 0.6704449585294756,
+  "logs": [
+    {
+      "step": 25,
+      "dev_ce": 0.9336506430596727,
+      "dev_acc": 0.5583524027459954
+    },
+    {
+      "step": 50,
+      "dev_ce": 0.7754627935901642,
+      "dev_acc": 0.7414187643020596
+    },
+    {
+      "step": 75,
+      "dev_ce": 0.9533712109490229,
+      "dev_acc": 0.7643020594965675
+    },
+    {
+      "step": 100,
+      "dev_ce": 0.6704449585294756,
+      "dev_acc": 0.8009153318077803
+    },
+    {
+      "step": 125,
+      "dev_ce": 0.7488064070123522,
+      "dev_acc": 0.8123569794050344
+    },
+    {
+      "step": 150,
+      "dev_ce": 0.7183011824079177,
+      "dev_acc": 0.8123569794050344
+    },
+    {
+      "step": 175,
+      "dev_ce": 0.9748878786454906,
+      "dev_acc": 0.8100686498855835
+    },
+    {
+      "step": 200,
+      "dev_ce": 0.7551807462503106,
+      "dev_acc": 0.8215102974828375
+    },
+    {
+      "step": 225,
+      "dev_ce": 0.8830945204003172,
+      "dev_acc": 0.8192219679633868
+    },
+    {
+      "step": 250,
+      "dev_ce": 0.8258999584917883,
+      "dev_acc": 0.8443935926773455
+    },
+    {
+      "step": 275,
+      "dev_ce": 0.7100241055820794,
+      "dev_acc": 0.851258581235698
+    },
+    {
+      "step": 300,
+      "dev_ce": 0.8069199596590829,
+      "dev_acc": 0.8398169336384439
+    }
+  ]
+}

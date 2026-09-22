@@ -1,0 +1,14 @@
+{
+  "strategy": "promptmem",
+  "task": "maze",
+  "checkpoint": "../../checkpoints/NanoJev-unified",
+  "test": "../../data/benchmarks/maze/test.jsonl",
+  "n_episodes": 60,
+  "n_steps": 1041,
+  "step_acc": 0.37367915465898177,
+  "mean_ce": 1.3141891063977387,
+  "ms_per_step": 402.7738468164594,
+  "steps_per_sec": 2.482782851726943,
+  "mean_history_window": 8.61287223823247,
+  "max_length_budget": 8192
+}

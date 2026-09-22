@@ -1,0 +1,93 @@
+{
+  "arm": "c6",
+  "task": "webshop",
+  "config": {
+    "arm": "c6",
+    "task": "webshop",
+    "train": "../../data/benchmarks/webshop/train.jsonl",
+    "dev": "../../data/benchmarks/webshop/dev.jsonl",
+    "checkpoint": "../../checkpoints/NanoJev-unified",
+    "out": "../../models/ws_c6",
+    "steps": 300,
+    "train_episodes": 0,
+    "episodes_per_update": 1,
+    "bptt_window": 8,
+    "note_slots": 16,
+    "note_window": 6,
+    "note_cap": 4,
+    "keep_steps": 2,
+    "max_train_steps": 20,
+    "backbone_lr": 1e-05,
+    "head_lr": 0.0001,
+    "eval_every": 25,
+    "eval_episodes": 24,
+    "seed": 17,
+    "mem_fraction": 0.45
+  },
+  "initial_dev_ce": 1.4402751748339604,
+  "initial_dev_acc": 0.5254237288135594,
+  "best_step": 300,
+  "best_dev_ce": 0.7428011026468239,
+  "logs": [
+    {
+      "step": 25,
+      "dev_ce": 1.2003590354017155,
+      "dev_acc": 0.5847457627118644
+    },
+    {
+      "step": 50,
+      "dev_ce": 1.150539950380828,
+      "dev_acc": 0.5932203389830508
+    },
+    {
+      "step": 75,
+      "dev_ce": 1.1189307547411171,
+      "dev_acc": 0.6186440677966102
+    },
+    {
+      "step": 100,
+      "dev_ce": 1.057772538403712,
+      "dev_acc": 0.6864406779661016
+    },
+    {
+      "step": 125,
+      "dev_ce": 1.039367832866955,
+      "dev_acc": 0.7033898305084746
+    },
+    {
+      "step": 150,
+      "dev_ce": 0.9838276633921758,
+      "dev_acc": 0.7542372881355932
+    },
+    {
+      "step": 175,
+      "dev_ce": 0.890990586838906,
+      "dev_acc": 0.788135593220339
+    },
+    {
+      "step": 200,
+      "dev_ce": 0.9209262933434081,
+      "dev_acc": 0.788135593220339
+    },
+    {
+      "step": 225,
+      "dev_ce": 1.0189311564505352,
+      "dev_acc": 0.6949152542372882
+    },
+    {
+      "step": 250,
+      "dev_ce": 0.9056526336668975,
+      "dev_acc": 0.7711864406779662
+    },
+    {
+      "step": 275,
+      "dev_ce": 0.8418658089891108,
+      "dev_acc": 0.8135593220338984
+    },
+    {
+      "step": 300,
+      "dev_ce": 0.7428011026468239,
+      "dev_acc": 0.8220338983050848
+    }
+  ]
+}

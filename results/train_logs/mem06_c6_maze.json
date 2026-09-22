@@ -1,0 +1,48 @@
+{
+  "arm": "c6",
+  "task": "maze",
+  "config": {
+    "arm": "c6",
+    "task": "maze",
+    "train": "../../data/benchmarks/maze/train.jsonl",
+    "dev": "../../data/benchmarks/maze/dev.jsonl",
+    "checkpoint": "../../checkpoints/NanoJev-unified",
+    "out": "../../models/mem06_c6_maze",
+    "steps": 30,
+    "train_episodes": 120,
+    "episodes_per_update": 1,
+    "bptt_window": 8,
+    "note_slots": 16,
+    "note_window": 6,
+    "note_cap": 4,
+    "keep_steps": 2,
+    "max_train_steps": 20,
+    "backbone_lr": 1e-05,
+    "head_lr": 0.0001,
+    "eval_every": 10,
+    "eval_episodes": 12,
+    "seed": 17,
+    "mem_fraction": 0.9
+  },
+  "initial_dev_ce": 1.2191663012286733,
+  "initial_dev_acc": 0.45685279187817257,
+  "best_step": 20,
+  "best_dev_ce": 0.778289499082768,
+  "logs": [
+    {
+      "step": 10,
+      "dev_ce": 0.8411362202800243,
+      "dev_acc": 0.6903553299492385
+    },
+    {
+      "step": 20,
+      "dev_ce": 0.778289499082768,
+      "dev_acc": 0.7309644670050761
+    },
+    {
+      "step": 30,
+      "dev_ce": 0.8530601995540925,
+      "dev_acc": 0.7360406091370558
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "arm": "c7",
+  "task": "alfworld",
+  "checkpoint": "../../models/jet17_alfworld",
+  "test": "../../data/benchmarks/alfworld/test.jsonl",
+  "n_episodes": 134,
+  "n_steps": 788,
+  "step_acc": 0.8629441624365483,
+  "mean_ce": 0.4358404884379155,
+  "ms_per_step": 473.37982283496217,
+  "steps_per_sec": 2.1124685754691264
+}

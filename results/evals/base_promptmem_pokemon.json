@@ -1,0 +1,14 @@
+{
+  "strategy": "promptmem",
+  "task": "pokemon",
+  "checkpoint": "../../checkpoints/NanoJev-unified",
+  "test": "../../data/benchmarks/pokemon/test.jsonl",
+  "n_episodes": 100,
+  "n_steps": 1716,
+  "step_acc": 0.26048951048951047,
+  "mean_ce": 1.6158836293262202,
+  "ms_per_step": 1510.2266518752979,
+  "steps_per_sec": 0.6621522661901558,
+  "mean_history_window": 8.581585081585082,
+  "max_length_budget": 8192
+}

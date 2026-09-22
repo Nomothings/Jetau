@@ -1,0 +1,12 @@
+{
+  "arm": "c7",
+  "task": "snake",
+  "checkpoint": "../../models/jet06_snake",
+  "test": "../../data/benchmarks/snake/test.jsonl",
+  "n_episodes": 50,
+  "n_steps": 786,
+  "step_acc": 0.9096692111959288,
+  "mean_ce": 0.3869560223224433,
+  "ms_per_step": 305.2029746564451,
+  "steps_per_sec": 3.2765080390374974
+}

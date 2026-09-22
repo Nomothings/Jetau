@@ -1,0 +1,28 @@
+{
+  "task": "webshop",
+  "train_file": "../../data/benchmarks/webshop/train.jsonl",
+  "dev_file": "../../data/benchmarks/webshop/dev.jsonl",
+  "initial_dev_ce": 1.4520759356988442,
+  "initial_dev_acc": 0.43243243243243246,
+  "n_train_examples": 1144,
+  "n_dev_examples": 198,
+  "best_step": 60,
+  "best_dev_ce": 0.8596178882730168,
+  "logs": [
+    {
+      "step": 20,
+      "dev_ce": 1.0235164005410027,
+      "dev_acc": 0.7162162162162162
+    },
+    {
+      "step": 40,
+      "dev_ce": 0.9056329660721727,
+      "dev_acc": 0.7432432432432432
+    },
+    {
+      "step": 60,
+      "dev_ce": 0.8596178882730168,
+      "dev_acc": 0.7567567567567568
+    }
+  ]
+}

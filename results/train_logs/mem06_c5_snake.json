@@ -1,0 +1,48 @@
+{
+  "arm": "c5",
+  "task": "snake",
+  "config": {
+    "arm": "c5",
+    "task": "snake",
+    "train": "../../data/benchmarks/snake/train.jsonl",
+    "dev": "../../data/benchmarks/snake/dev.jsonl",
+    "checkpoint": "../../checkpoints/NanoJev-unified",
+    "out": "../../models/mem06_c5_snake",
+    "steps": 30,
+    "train_episodes": 120,
+    "episodes_per_update": 1,
+    "bptt_window": 8,
+    "note_slots": 16,
+    "note_window": 6,
+    "note_cap": 4,
+    "keep_steps": 2,
+    "max_train_steps": 20,
+    "backbone_lr": 1e-05,
+    "head_lr": 0.0001,
+    "eval_every": 10,
+    "eval_episodes": 12,
+    "seed": 17,
+    "mem_fraction": 0.9
+  },
+  "initial_dev_ce": 1.2928007017513834,
+  "initial_dev_acc": 0.4845360824742268,
+  "best_step": 30,
+  "best_dev_ce": 0.6918084583648471,
+  "logs": [
+    {
+      "step": 10,
+      "dev_ce": 0.9169813091146577,
+      "dev_acc": 0.5412371134020618
+    },
+    {
+      "step": 20,
+      "dev_ce": 0.7391068719365855,
+      "dev_acc": 0.711340206185567
+    },
+    {
+      "step": 30,
+      "dev_ce": 0.6918084583648471,
+      "dev_acc": 0.7061855670103093
+    }
+  ]
+}

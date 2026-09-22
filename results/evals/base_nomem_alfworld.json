@@ -1,0 +1,13 @@
+{
+  "task": "alfworld",
+  "checkpoint": "../../checkpoints/NanoJev-unified",
+  "test": "../../data/benchmarks/alfworld/test.jsonl",
+  "n_episodes": 134,
+  "n_steps_evaluated": 788,
+  "skipped_overlong": 0,
+  "step_acc": 0.1802030456852792,
+  "random_baseline": 0.15487421383647798,
+  "mean_candidates": 6.456852791878172,
+  "ms_per_step": 170.2275850229807,
+  "steps_per_sec": 5.874488555218593
+}

@@ -1,0 +1,13 @@
+{
+  "task": "mind2web",
+  "checkpoint": "../../checkpoints/NanoJev-unified",
+  "test": "../../data/benchmarks/mind2web/test.jsonl",
+  "n_episodes": 912,
+  "n_steps_evaluated": 5590,
+  "skipped_overlong": 0,
+  "step_acc": 0.13202146690518785,
+  "random_baseline": 0.14285714285714285,
+  "mean_candidates": 7.0,
+  "ms_per_step": 129.5000071769367,
+  "steps_per_sec": 7.722007294051293
+}

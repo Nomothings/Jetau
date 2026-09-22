@@ -1,0 +1,43 @@
+{
+  "task": "maze",
+  "train_file": "../../data/benchmarks/maze/train.jsonl",
+  "dev_file": "../../data/benchmarks/maze/dev.jsonl",
+  "initial_dev_ce": 1.3319935838142074,
+  "initial_dev_acc": 0.39457831325301207,
+  "n_train_examples": 3891,
+  "n_dev_examples": 664,
+  "best_step": 300,
+  "best_dev_ce": 0.8800315612769989,
+  "logs": [
+    {
+      "step": 50,
+      "dev_ce": 0.9611698708620416,
+      "dev_acc": 0.5286144578313253
+    },
+    {
+      "step": 100,
+      "dev_ce": 0.9488097644713988,
+      "dev_acc": 0.5753012048192772
+    },
+    {
+      "step": 150,
+      "dev_ce": 1.0376004889068833,
+      "dev_acc": 0.5617469879518072
+    },
+    {
+      "step": 200,
+      "dev_ce": 0.9298564874264131,
+      "dev_acc": 0.6054216867469879
+    },
+    {
+      "step": 250,
+      "dev_ce": 0.9292725471847029,
+      "dev_acc": 0.5768072289156626
+    },
+    {
+      "step": 300,
+      "dev_ce": 0.8800315612769989,
+      "dev_acc": 0.6024096385542169
+    }
+  ]
+}

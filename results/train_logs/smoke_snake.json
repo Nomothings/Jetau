@@ -1,0 +1,28 @@
+{
+  "task": "snake",
+  "train_file": "../../data/benchmarks/snake/train.jsonl",
+  "dev_file": "../../data/benchmarks/snake/dev.jsonl",
+  "initial_dev_ce": 1.3750720206630287,
+  "initial_dev_acc": 0.5741626794258373,
+  "n_train_examples": 4092,
+  "n_dev_examples": 627,
+  "best_step": 40,
+  "best_dev_ce": 0.4760759121826011,
+  "logs": [
+    {
+      "step": 20,
+      "dev_ce": 0.6639798640064075,
+      "dev_acc": 0.7543859649122807
+    },
+    {
+      "step": 40,
+      "dev_ce": 0.4760759121826011,
+      "dev_acc": 0.84688995215311
+    },
+    {
+      "step": 60,
+      "dev_ce": 0.4937734336160016,
+      "dev_acc": 0.8660287081339713
+    }
+  ]
+}

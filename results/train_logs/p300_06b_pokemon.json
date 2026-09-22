@@ -1,0 +1,43 @@
+{
+  "task": "pokemon",
+  "train_file": "../../data/benchmarks/pokemon/train.jsonl",
+  "dev_file": "../../data/benchmarks/pokemon/dev.jsonl",
+  "initial_dev_ce": 1.578238085752425,
+  "initial_dev_acc": 0.3026706231454006,
+  "n_train_examples": 4329,
+  "n_dev_examples": 674,
+  "best_step": 300,
+  "best_dev_ce": 0.34967179660538894,
+  "logs": [
+    {
+      "step": 50,
+      "dev_ce": 0.6501459879938856,
+      "dev_acc": 0.8234421364985163
+    },
+    {
+      "step": 100,
+      "dev_ce": 0.585762445933741,
+      "dev_acc": 0.8857566765578635
+    },
+    {
+      "step": 150,
+      "dev_ce": 0.4982833309590993,
+      "dev_acc": 0.884272997032641
+    },
+    {
+      "step": 200,
+      "dev_ce": 0.3869714006250973,
+      "dev_acc": 0.8724035608308606
+    },
+    {
+      "step": 250,
+      "dev_ce": 0.3593120127916336,
+      "dev_acc": 0.9169139465875371
+    },
+    {
+      "step": 300,
+      "dev_ce": 0.34967179660538894,
+      "dev_acc": 0.9347181008902077
+    }
+  ]
+}

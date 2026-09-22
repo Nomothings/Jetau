@@ -1,0 +1,12 @@
+{
+  "arm": "c7",
+  "task": "maze",
+  "checkpoint": "../../models/jet06_maze",
+  "test": "../../data/benchmarks/maze/test.jsonl",
+  "n_episodes": 60,
+  "n_steps": 1041,
+  "step_acc": 0.8318924111431316,
+  "mean_ce": 0.722510986184204,
+  "ms_per_step": 271.1535380980112,
+  "steps_per_sec": 3.6879474522605697
+}

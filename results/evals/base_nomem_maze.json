@@ -1,0 +1,13 @@
+{
+  "task": "maze",
+  "checkpoint": "../../checkpoints/NanoJev-unified",
+  "test": "../../data/benchmarks/maze/test.jsonl",
+  "n_episodes": 60,
+  "n_steps_evaluated": 1041,
+  "skipped_overlong": 0,
+  "step_acc": 0.3919308357348703,
+  "random_baseline": 0.25,
+  "mean_candidates": 4.0,
+  "ms_per_step": 44.11175640256974,
+  "steps_per_sec": 22.669693559101738
+}

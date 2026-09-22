@@ -1,0 +1,12 @@
+{
+  "arm": "c7",
+  "task": "webshop",
+  "checkpoint": "../../models/ws_jet",
+  "test": "../../data/benchmarks/webshop/test.jsonl",
+  "n_episodes": 500,
+  "n_steps": 2268,
+  "step_acc": 0.8227513227513228,
+  "mean_ce": 0.6068146998409384,
+  "ms_per_step": 275.11427597304134,
+  "steps_per_sec": 3.6348531767867645
+}

@@ -1,0 +1,13 @@
+{
+  "task": "snake",
+  "checkpoint": "../../checkpoints/NanoJev-unified",
+  "test": "../../data/benchmarks/snake/test.jsonl",
+  "n_episodes": 50,
+  "n_steps_evaluated": 786,
+  "skipped_overlong": 0,
+  "step_acc": 0.5534351145038168,
+  "random_baseline": 0.3333333333333333,
+  "mean_candidates": 3.0,
+  "ms_per_step": 42.849001606793614,
+  "steps_per_sec": 23.337766634017726
+}

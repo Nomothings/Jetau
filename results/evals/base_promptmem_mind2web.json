@@ -1,0 +1,14 @@
+{
+  "strategy": "promptmem",
+  "task": "mind2web",
+  "checkpoint": "../../checkpoints/NanoJev-unified",
+  "test": "../../data/benchmarks/mind2web/test.jsonl",
+  "n_episodes": 912,
+  "n_steps": 5590,
+  "step_acc": 0.1325581395348837,
+  "mean_ce": 2.1158794927788973,
+  "ms_per_step": 278.61429504885245,
+  "steps_per_sec": 3.589191286199652,
+  "mean_history_window": 3.7488372093023257,
+  "max_length_budget": 8192
+}

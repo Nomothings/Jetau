@@ -1,0 +1,13 @@
+{
+  "task": "pokemon",
+  "checkpoint": "../../checkpoints/NanoJev-unified",
+  "test": "../../data/benchmarks/pokemon/test.jsonl",
+  "n_episodes": 100,
+  "n_steps_evaluated": 1716,
+  "skipped_overlong": 0,
+  "step_acc": 0.31002331002331,
+  "random_baseline": 0.1878694985767462,
+  "mean_candidates": 5.322843822843823,
+  "ms_per_step": 128.88074512411634,
+  "steps_per_sec": 7.759110944283939
+}

@@ -1,0 +1,12 @@
+{
+  "arm": "c7",
+  "task": "pokemon",
+  "checkpoint": "../../models/jet17_pokemon",
+  "test": "../../data/benchmarks/pokemon/test.jsonl",
+  "n_episodes": 100,
+  "n_steps": 706,
+  "step_acc": 0.8682719546742209,
+  "mean_ce": 0.5932173472604907,
+  "ms_per_step": 301.30098877071003,
+  "steps_per_sec": 3.318940319711329
+}

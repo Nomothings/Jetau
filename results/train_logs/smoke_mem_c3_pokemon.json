@@ -1,0 +1,48 @@
+{
+  "arm": "c3",
+  "task": "pokemon",
+  "config": {
+    "arm": "c3",
+    "task": "pokemon",
+    "train": "../../data/benchmarks/pokemon/train.jsonl",
+    "dev": "../../data/benchmarks/pokemon/dev.jsonl",
+    "checkpoint": "../../checkpoints/NanoJev-unified",
+    "out": "../../models/smoke_mem_c3_pokemon",
+    "steps": 30,
+    "train_episodes": 120,
+    "episodes_per_update": 1,
+    "bptt_window": 8,
+    "note_slots": 16,
+    "note_window": 12,
+    "note_cap": 4,
+    "keep_steps": 2,
+    "max_train_steps": 30,
+    "backbone_lr": 1e-05,
+    "head_lr": 0.0001,
+    "eval_every": 10,
+    "eval_episodes": 12,
+    "seed": 17,
+    "mem_fraction": 0.85
+  },
+  "initial_dev_ce": 1.522720138139503,
+  "initial_dev_acc": 0.37209302325581395,
+  "best_step": 20,
+  "best_dev_ce": 1.222166655645814,
+  "logs": [
+    {
+      "step": 10,
+      "dev_ce": 1.522720138139503,
+      "dev_acc": 0.37209302325581395
+    },
+    {
+      "step": 20,
+      "dev_ce": 1.222166655645814,
+      "dev_acc": 0.6046511627906976
+    },
+    {
+      "step": 30,
+      "dev_ce": 1.222166655645814,
+      "dev_acc": 0.6046511627906976
+    }
+  ]
+}
