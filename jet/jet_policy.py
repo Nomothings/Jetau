@@ -85,7 +85,7 @@ class JetPolicy(BasePolicy):
 
     def __init__(self, checkpoint, task, note_slots=16, note_window=6, note_cap=4,
                  note_window_override=None, mem_fraction=0.4):
-        import shutil, tempfile
+        import os, shutil, tempfile
         from safetensors.torch import load_file, save_file
         src = Path(checkpoint)
         sd = load_file(str(src / "best.safetensors"))
@@ -95,7 +95,7 @@ class JetPolicy(BasePolicy):
         if writer_sd:
             # DecisionPredictor loads strictly; route model-only weights through a
             # temp bundle, then attach the writer separately.
-            tmp = Path(tempfile.mkdtemp(prefix="jetpol_", dir="/data/yangyuming/tmp"))
+            tmp = Path(tempfile.mkdtemp(prefix="jetpol_", dir=os.environ.get("JET_TMPDIR") or None))
             shutil.copy(src / "config.json", tmp / "config.json")
             shutil.copytree(src / "tokenizer", tmp / "tokenizer")
             shutil.copytree(src / "backbone_config", tmp / "backbone_config")

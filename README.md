@@ -1,152 +1,187 @@
-# Jet: Unified Latent-Space Episodic Memory for Parallel Decision Models
+![Jeτ: Introducing System One Models for Long-Horizon Decision-Making](assets/jetau-banner.png)
 
-Jet is a training method that gives a non-generative, parallel decision model
-(one forward pass scores all candidate actions) an *episodic memory* that lives
-entirely in the key-value cache of the backbone. Instead of appending raw text
-to the context, Jet maintains a **single compressed slot tier** in latent space:
-raw step K/V exists only transiently inside a write window and is evicted at
-every window boundary, while a **learned latent write head** distills it into a
-bounded set of memory slots. The write head forwards free continuous slot
-embeddings over the cache (in-distribution base K/V, no new tokenizer entries)
-and adds a gated low-rank delta projected directly from the last hidden state.
-Gates and slot scales are **zero-initialized**, so training starts exactly at
-the fixed-token-note behavior and smoothly learns to write pure latent content —
-perception stays token-based, memory is pure latent space.
+[简体中文](README.md) · [English](README.en.md)
 
-The package ships the Jet trainer (batched-streaming operator), the c3-c7
-ablation family, no-memory / prompt-memory baselines, six benchmark datasets in
-one unified episode format, and the evaluation pipeline that produced the
-4-strategy x 6-scenario comparison.
+# Jeτ: Introducing System One Models for Long-Horizon Decision-Making
 
-## Install
+## 01 从语言生成到结构化决策
 
-Requires Python >= 3.10 and a CUDA GPU (the decision runtime validates a CUDA
-device on load).
+最近火爆的 [Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev)，瞄准了软件运行中最常见的决定性瞬间：做决定。网页上该点哪里，任务该交给哪个工具，游戏里下一步该往哪走。这些问题的答案常常只是一个选项，却会在一次任务中反复出现。
+
+大语言模型让机器善于理解和表达。软件也常借助这份能力作判断：向模型描述当前局面，等它写出回答，再从文字里找出可以执行的动作。任务只有几步时，这样做很自然。随着行动不断延伸，等待与解析也跟着每一步累积。
+
+Jev 把判断直接变成模型的输出。作为 **System One Model**，它接收当前状态和明确的问题，给出结构化的选择及其概率。软件读到结果，便能进入下一步。[TypeSafe 模型文档](https://docs.typesafe.ai/introduction)
+
+环境随行动改变，新的状态再次到来。在这个循环中，Jev 担任**决策体**，让模型判断跟上游戏、控制和软件任务的运行节奏。
+
+## 02 当决策，开始彼此依赖
+
+行动持续下去，过去便开始影响现在。一次选择改变了环境，也为下一次选择留下了线索。眼前看到的局面，只是整个过程的一部分。
+
+在一座只能看见附近区域的迷宫中，决策体走到岔路口。眼前的两条路看起来差不多；如果它刚从左侧的死路折返，就该记得这段经历。下一次来到相似的路口，已经走过的路仍会影响它的方向。
+
+对战游戏也是如此。对手刚才如何应对、自己已经试过哪些动作，会影响下一回合的选择。只看这一回合的画面，容易重复无效的尝试。
+
+股票决策也会一天天延续。今天看到价格上涨，是否买入，不能只看今天的价格。昨天是否已经买过、上次选择带来了什么结果，都会改变今天的判断。同一个信号，放在不同的经历里，可能意味着不同的下一步。
+
+迷宫、对战和股票看起来相距很远，却有同一个要求：下一次判断要接得上前一次。对于 Jev 这样的决策体，长程任务需要一种**跨越决策、持续演化的状态**。
+
+## 03 Jeτ：面向长程决策的 System One Model
+
+我们提出 **Jeτ**，首个面向长程决策设计的有状态 System One Model。它延续 Jev 清晰、快速的选择方式，也让过去的观察、行动和结果参与下一步判断。
+
+在迷宫里，它能够沿着已经探索过的路线继续前进。对战进入下一回合，它仍能利用刚才的交手经验。面对连续的股票判断，此前是否买入，也会成为今天选择的一部分。
+
+同样的眼前局面，过去不同，下一步就可能不同。Jeτ 让决策体带着经历继续行动，让每一次选择都成为长程任务的一部分。
+
+**Jeτ ，让 System One Models 首次迈入长程决策时代。**
+
+## 04 漫长的经历，留在潜在空间
+
+单次决策可以很短，任务却可能持续很久。迷宫里的每一个岔路、对战中的每一次试探，都会让行动轨迹继续增长。如果每一步都要重新读完这些经历，决策体终将被上下文长度和反复处理历史的成本困住。长程决策需要一种能够随任务延续、又能保持紧凑的内部状态。
+
+为此，我们提出 **Persistent Latent State（持续潜在状态）**。它将交互历史沉淀为模型内部的一组连续表示，让过去直接参与下一次选择。在迷宫里，决策体无需重新读一遍完整路线，也能带着“左边走过，是死路”的经历回到岔路口。
+
+这份状态有明确的计算载体：一组可学习的连续状态嵌入，在读取已有经历后，形成分布于模型各层的 Key–Value（KV）表示。它们留在决策缓存中，成为后续候选动作共享的潜在上下文。Jeτ 评估“向左”或“向右”时，注意力可以直接访问这些表示，让历史在模型的决策计算中发挥作用。
+
+轨迹可以一直增长，状态的容量却可以保持在固定预算内。早先的文本步骤经过压缩后退出当前上下文，后来发生的事继续写入状态。由此，Jeτ 在理论上能够沿着任意长的交互序列持续运行，而每一步仍只需读取一份紧凑的历史表示。这也契合 Jev 的 System One 路线：保持快速、结构化的即时选择，让选择所依据的经历在内部延续。
+
+有了持续潜在状态，接下来要让它随行动真正演化。我们进一步提出 **Latent-State Recurrence（LSR，潜在状态递推）**：已有状态 $s_k$ 接收最近一段交互 $\tau_k$，生成下一段状态：
+
+$$
+s_{k+1}=\operatorname{LSR}(s_k,\tau_k).
+$$
+
+具体而言，Jeτ 先暂存近期的观察、行动与反馈。到达写入时刻，一组状态嵌入在旧状态与近期交互的共同上下文中经过模型，生成新的跨层潜在表示；随后，近期的原始步骤退出缓存，新的状态留下。下一轮候选动作评分直接读取更新后的状态。随着任务继续，这一过程反复发生：新经历进入，旧状态参与生成，新的状态再接过历史。
+
+决策体走入迷宫左侧，发现死路，再折返回来。这段经历被写入状态；回到岔路口时，候选动作仍是“向左”和“向右”，决策所依据的内部状态已经改变。继续前行后，新遇到的路口又会在此前探索的基础上更新状态。长程行动就在这样的递推中逐步展开。
+
+**Persistent Latent State** 让经历留在决策体内部，**LSR** 让经历跨越一次又一次选择。Jev 为每一步提供迅速、清晰的判断；Jeτ 让这些判断能够沿着同一条任务轨迹持续前进。
+
+## 05 Jeτ-0.6B：从语言模型到决策体
+
+一种状态能保存多少经历，最终要看它能否帮助决策体走好下一步。为了让潜在状态真正进入决策过程，我们构建了 **Jeτ-0.6B**：以 Qwen3-0.6B 为语言骨干，为候选动作建立结构化评分接口，再将这一决策结构拓展到连续行动的任务轨迹。
+
+Qwen 原本通过预测下一个词来生成回答。要让它成为 Jev 类型的决策模型，我们保留预训练骨干对局面的理解能力，将输出改为对**候选动作集合**直接评分。每个问题都包含当前局面、明确的决策问题和可执行的候选项。局面与问题构成共享上下文；每个候选项沿各自的分支进入 Qwen，最后一个位置的隐藏表示被送入决策头，得到该动作的分值。决策头还让候选项之间交换信息，使分值反映它们在同一局面中的相对关系。
+
+比如走到迷宫岔路口，模型收到眼前的观察，以及“向左”“向右”两个候选动作。它直接比较两个动作的分值，选出下一步；分值经过归一化，也可以表示为候选动作的概率。Jeτ 直接返回可执行的动作，Qwen 对局面的理解便落实为一步迅速、明确的判断。
+
+有了这样的单轮决策接口，我们把时间接入这套结构。Jeτ 在 Qwen 的注意力路径中保留持续潜在状态：每次评分都能读取此前留下的表示；每经过一段交互，状态写入模块又根据已有状态和新的经历生成下一组表示。结构化决策接口仍然清晰，模型内部却多了一条随任务推进的状态轨迹。
+
+为了训练这条轨迹，我们将多轮任务整理为连续的 **episode**。在第 $t$ 步，环境给出观察 $o_t$ 与候选动作集合 $\mathcal A_t$；决策体选择动作 $a_t$，随后收到行动反馈 $f_t$。迷宫中的探索、对战中的试探，以及真实任务中的连续操作，都可以写成这样的序贯决策过程。
+
+Jeτ 沿着整条轨迹训练：先根据当前上下文为候选动作评分，再接收反馈，并在阶段边界更新潜在状态。以轨迹中的目标动作 $a_t^*$ 为监督，训练目标为：
+
+$$
+\mathcal L_{\mathrm{decision}}
+=-\frac{1}{T}\sum_{t=1}^{T}
+\log p_\theta(a_t^*\mid c_t,\mathcal A_t).
+$$
+
+这里的 $c_t$ 包含当前观察、近期交互与持续潜在状态。损失直接衡量每一步能否选对动作，推动 Qwen 骨干和决策头适应长程任务；潜在状态则在同一条轨迹中反复写入，并参与后续步骤的评分。走出迷宫死路后，值得留下的线索，是下一次来到岔路口时能够改变方向的那段经历。写入与读取围绕这样的未来选择衔接，状态因而服务于行动。
+
+至此，Jeτ-0.6B 已经具备一条完整的长程决策链路：理解当前局面，选择动作，接收结果，更新状态，然后带着新的状态进入下一步。它的价值，接下来要交给持续行动的任务检验。
+
+## 06 每一步选择的背后
+
+Jeτ 带着持续潜在状态，走进六项不同的任务。每次行动，它都要从给定的候选动作中选出下一步。
+
+![Jeτ-0.6B 在六项任务上的训练曲线：红色为验证集准确率，蓝色为训练损失](assets/jet06_curves.png)
+
+*图 1｜Jeτ-0.6B 在六项任务上的训练曲线*
+
+我们以 [NanoJev](https://github.com/TianyuCodings/NanoJev) 的两种方式作参照：**仅当前观察**，每次只看眼前的局面；**文本历史**，把近期经历随输入重新交给模型。两者都未接受这些任务的训练。
+
+这里的**步级准确率**，就是所有测试轨迹中选对的步数占总步数的比例。每一步都有对应的目标动作；即使一局中途走错，其他选对的步骤依然算数。
+
+| 场景 | 任务 | 仅当前观察 | 文本历史 | Jeτ |
+|---|---|---:|---:|---:|
+| 游戏 | 迷宫导航 | 39.2% | 37.4% | **83.2%** |
+| 游戏 | 贪吃蛇 | 55.3% | 35.1% | **91.0%** |
+| 游戏 | 宝可梦对战 | 31.0% | 26.0% | **79.6%** |
+| 决策 | 家居任务（[ALFWorld](https://arxiv.org/abs/2010.03768)） | 18.0% | 40.2% | **86.9%** |
+| 决策 | 网页操作（[Mind2Web](https://arxiv.org/abs/2306.06070)） | 13.2% | 13.3% | **63.1%** |
+| 决策 | 在线购物（[WebShop](https://arxiv.org/abs/2207.01206)） | 45.1% | 46.8% | **82.3%** |
+
+迷宫要求记住已经离开视野的道路；贪吃蛇把整个棋盘摆在眼前；宝可梦则把选择延伸到连续回合。Jeτ 在六项任务的每一步判断中都领先。接下来，便要看这些判断能否连成一条通向终点的路。
+
+## 07 从迷宫到真实任务
+
+一步选对，离走到终点还有距离。在迷宫里，岔路要一条条走过；在家居任务中，物品要一步步找到、处理、放好。我们让 Jeτ 从起点持续行动，看看一连串判断最终能完成什么。作为参照，NanoJev 的**仅当前观察**版本也接受了同等任务训练。
+
+| 任务 | 最终结果 | 仅当前观察 | Jeτ |
+|---|---|---:|---:|
+| 迷宫导航 | 完成率 | 11.7% | **80.0%** |
+| 贪吃蛇 | 完成率 | 92.0% | 88.0% |
+| 宝可梦对战 | 胜率 | 53.0% | 48.0% |
+| 家居任务（ALFWorld） | 完成率 | 45.5% | **76.1%** |
+| 在线购物（WebShop） | 平均奖励 | 0.680 | 0.675 |
+
+**迷宫**最能看见状态怎样改变行动。决策体每次只看到身边一片局部区域，要在 64 步内找到终点。仅当前观察的版本完成了 **11.7%**；Jeτ 完成了 **80.0%**，成功时平均只走 **15.1 步**。走过的岔路没有随着画面消失，探索便逐渐变成通向终点的路线。
+
+而这份历史没有拖慢下一步。在一次迷宫交互中，Jeτ 与文本历史版本都沿着 14 步的最短路径抵达终点；Jeτ 每步的中位耗时为 **65 毫秒**，文本历史为 **590 毫秒**。快速的判断，得以一路延续。
+
+离开迷宫，连续行动有了更熟悉的样子。在 **ALFWorld** 的 **134 个未见任务**中，决策体要找出物品，按要求清洗或加热，再放到指定位置。Jeτ 完成了 **76.1%** 的任务；仅当前观察的版本为 **45.5%**。每一步留下的进展，都能成为下一步行动的依据。
+
+网页上的决策，还要跟着不断变化的界面前进。在 **Mind2Web** 中，决策体沿页面逐步定位并操作目标元素；Jeτ 每一步选中目标元素的准确率达到 **63.1%**。这个场景以单次网页操作为评判单位。
+
+在 **WebShop**，决策体从搜索、浏览走向最终购买，通常只需少数几步。Jeτ 的平均奖励与仅当前观察的版本相近；贪吃蛇和宝可梦的完整任务结果也接近。眼前信息已经足够时，决策可以轻快地发生；当重要线索留在过去，持续状态便把经历带入下一步，将 System One 的快速选择延伸到更长的任务。
+
+## 08 快速开始
+
+仓库已提供六项任务的轨迹数据，以及 Jeτ 的训练和评测入口。下面以迷宫为例，从基础决策模型出发，训练一个带持续潜在状态的 Jeτ，再让它独立走完迷宫。以下命令以 Linux 和支持 BF16 的 CUDA GPU 为例。
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 ```
 
-Backbone bundles are not part of the git tree. Place them under `checkpoints/`
-(see `checkpoints/README.md`):
-
-- `checkpoints/NanoJev-unified` — the released NanoJev unified decision model
-  (0.6B), from the official NanoJev release.
-- `checkpoints/Qwen3-1.7B-Base` — the plain backbone from Hugging Face
-  (`Qwen/Qwen3-1.7B-Base`).
-- `checkpoints/decision-qwen3-1.7b` — built locally from the backbone above:
-
-  ```bash
-  python -m jet.build_backbone_bundle --model checkpoints/Qwen3-1.7B-Base \
-      --out checkpoints/decision-qwen3-1.7b
-  ```
-
-## Quickstart
-
-Train Jet (batched-streaming trainer) on the maze benchmark:
+将 [NanoJev](https://github.com/TianyuCodings/NanoJev) 的兼容决策模型权重放在 `checkpoints/NanoJev-unified/`。该目录需要包含 `config.json`、`best.safetensors`、`tokenizer/` 和 `backbone_config/`；模型权重未随代码仓库提交。
 
 ```bash
-python -m jet.train_jet_bs --task maze \
-    --train data/maze/train.jsonl --dev data/maze/dev.jsonl \
-    --checkpoint checkpoints/NanoJev-unified \
-    --steps 300 --eval-every 25 --eval-episodes 24 \
-    --note-window 6 --note-slots 16 --note-cap 4 --max-train-steps 20 \
-    --mem-fraction 0.9 --out checkpoints/jet/jet06_maze
+python -m jet.train_jet_bs \
+  --task maze \
+  --train data/maze/train.jsonl \
+  --dev data/maze/dev.jsonl \
+  --checkpoint checkpoints/NanoJev-unified \
+  --out checkpoints/jet/jet06_maze \
+  --steps 300 --eval-every 25 --eval-episodes 24 \
+  --note-window 6 --note-slots 16 --note-cap 4 \
+  --max-train-steps 20 --mem-fraction 0.9
 ```
 
-Evaluate a trained Jet bundle on the test split:
+训练完成后，Jeτ 的模型权重保存在 `checkpoints/jet/jet06_maze/`。用闭环评测让它从起点行动，直到找到终点或用完步数：
 
 ```bash
-python -m jet.eval_mem --arm c7 --task maze \
-    --checkpoint checkpoints/jet/jet06_maze --test data/maze/test.jsonl \
-    --limit-episodes 0 --out results/testmem_maze_jet06.json --mem-fraction 0.5
+python -m jet.eval_games_closed \
+  --task maze --policy jet \
+  --checkpoint checkpoints/jet/jet06_maze \
+  --model-name jet06_maze \
+  --episodes 60 \
+  --out results/closed/maze_jet06.json
 ```
 
-(`jet.train_jet` is an alias of `jet.train_mem_generic --arm c7`; the c3-c6
-ablation arms are run through `jet.train_mem_generic --arm c3|c4|c5|c6`.)
+结果文件会给出完成率和到达终点所需的步数。已有训练好的 Jeτ 权重时，可以直接运行评测命令；贪吃蛇和宝可梦使用同一个游戏评测入口，其余任务的入口分别位于 `jet/eval_alfworld_closed.py`、`jet/eval_mem.py` 和 `jet/eval_webshop_closed.py`。
 
-## Data
+## 09 System One 的长程时刻
 
-All six benchmarks share one episode JSONL schema (see `data/FORMAT.md`; each
-task directory also has a `README.md` with provenance, teacher rules, and
-regeneration commands):
+Jev 让模型的判断成为可以立即执行的结构化选择。Jeτ 沿着这条路继续向前：选择发生之后，经历留在状态里；新的局面到来，决策体从自己走过的地方继续出发。
 
-```json
-{"task": "maze", "episode_id": "...", "split": "train", "meta": {}, "success": true,
- "n_steps": 24, "steps": [{"t": 1, "obs": "...", "candidates": {"key": "desc"},
-                           "action": "key", "event": "result text"}]}
-```
+这样的改变，会在任务变长时逐渐显现。迷宫中的一条死路、家居任务中已经完成的一道步骤，都会影响接下来的行动。Jeτ 把这些经历压入持续演化的潜在状态，让快速的单步选择有了贯穿整段任务的方向。
 
-| Task | train / dev / test episodes | Source | Teacher |
-|---|---|---|---|
-| maze | 400 / 60 / 60 | 8x8 grid mazes (self-generated, deterministic seeds) | BFS + epsilon |
-| snake | 300 / 50 / 50 | 8x8 snake game (self-generated) | BFS + flood-fill survivability |
-| pokemon | 400 / 60 / 100 | self-built pure-Python 3v3 battle simulator | heuristic damage-race policy |
-| alfworld | 3553 / 140 / 134 | official ALFWorld `json_2.1.1` expert trajectories | official expert + template distractor candidates |
-| mind2web | 959 / 50 / 912 | official Mind2Web (osunlp) train / cross-domain test | positive element + sampled negatives per step |
-| webshop | 10587 / 1000 / 500 | official WebShop products and queries | offline retrieval replay, official reward rule |
+Agent 正在走向更长、更开放的行动过程。环境不断变化，目标需要一步步完成，过去的选择也会持续影响未来。面向这样的任务，System One Model 需要在迅速决策的同时，保有自己的时间与状态。Jeτ 展示了这一方向的起点：一个能够学习如何记取经历、如何接续行动的长程决策体。
 
-The generation scripts are `jet/gen_data_pokemon.py`, `jet/gen_data_mind2web.py`,
-`jet/gen_data_webshop.py`, and `jet/gen_data_alfworld.py` (grid tasks are
-generated by the upstream NanoJev pipeline; `jet/vendor/`).
+**从下一步，到下一程。**
 
-## Reproduce
+## 致谢
 
-From the repo root, with the backbone bundles in place:
+Jeτ 沿着 Jev 开启的 System One 决策路线继续探索。感谢 [NanoJev](https://github.com/TianyuCodings/NanoJev) 作者 [TianyuCodings](https://github.com/TianyuCodings) 与项目贡献者公开模型和代码，为这项研究提供了重要起点。
 
-```bash
-# 1) Training-free baselines on all six tasks (no-memory + prompt-text memory)
-bash scripts/run_baselines.sh
+也感谢每一位愿意分享代码、数据、模型与想法的人。长程决策的下一步，建立在这些开放工作的肩膀上。
 
-# 2) Jet fleet: 12 training runs (Jet-0.6B / Jet-1.7B x 6 tasks, 300 steps)
-bash scripts/dispatch_jet_fleet.sh
+## 版权与许可
 
-# 3) Test-set evaluation of all 12 fleet bundles, then the final table
-bash scripts/fleet_eval_queue.sh
-python -m jet.collect_final   # writes results/final_table.md
-```
+© 2026 Jet authors。Jeτ 的原创代码与文档采用 [PolyForm Noncommercial 1.0.0](LICENSE) 许可，可用于非商业研究、学习、修改与分享；商业使用需要另行取得授权。
 
-All scripts honor `PYTHON=<interpreter>` and run every entry point as
-`python -m jet.<module>` from the repo root.
-
-## Results
-
-Step-level accuracy on the full official test splits, plus official-protocol
-interactive metrics (see `results/RESULTS.md` and `results/RESULTS_CLOSED.md`).
-
-| Task (official protocol) | No memory | Prompt memory (sliding) | **Jet-0.6B** |
-|---|---:|---:|---:|
-| maze — completion rate, 64-step budget | 0% | ~0% | **80%** (15.1 steps) |
-| snake — completion rate | 0% | 0% | **88%** |
-| pokemon — battle win rate | 3% | 1% | **48%** |
-| ALFWorld — interactive SR, unseen-134, <=50 steps | 0% | (running) | **76.1%** |
-| WebShop — interactive reward / strict SR | 0.37 / 10% | 0.40 / 12% | **0.67 / 43%** |
-| Mind2Web — step acc (official metric) | 0.132 | 0.133 | **0.631** |
-
-Baseline rows use the training-free released checkpoint; trained-baseline arms
-(same data, same updates, same seed) are being finalized.
-
-## Limitations
-
-- The Pokemon benchmark uses dense hand-crafted observations with a built-in
-  damage-race summary, which partially gives away the answer; scores there
-  should be read as upper bounds on memory benefit.
-- Reported numbers come from 300-step smoke-scale training runs (24 dev
-  episodes, eval every 25 steps), not from fully converged training.
-- The decision runtime requires CUDA; there is no CPU fallback.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
-
-## Citation
-
-```bibtex
-@misc{jet2026,
-  title  = {Jet: Unified Latent-Space Episodic Memory for Parallel Decision Models},
-  author = {Jet authors},
-  year   = {2026},
-  note   = {preprint}
-}
-```
+公开发布本项目或基于 Jeτ 的衍生代码时，请保留版权与许可声明，并在项目文档中明确标注 **[Jeτ（Jetau）](https://github.com/Nomothings/Jet)** 及其来源。仓库中引入的 NanoJev 代码保留[原始 MIT 许可](jet/vendor/LICENSE)；第三方模型权重与数据遵循各自的许可。

@@ -35,16 +35,16 @@ def main():
     p.add_argument("--mem-fraction", type=float, default=0.35)
     a = p.parse_args()
 
-    import shutil, tempfile
+    import os, shutil, tempfile
     from safetensors.torch import load_file, save_file
     src = Path(a.checkpoint)
     sd = load_file(str(src / "best.safetensors"))
     writer_sd = {k[len("writer."):]: v for k, v in sd.items() if k.startswith("writer.")}
     if writer_sd:
         # DecisionPredictor loads strictly; route the model-only weights through
-        # a temp bundle and load the writer separately. Temp dir lives on /data
-        # (the root fs is nearly full; never use /tmp for multi-GB bundles).
-        tmp = Path(tempfile.mkdtemp(prefix="evalmem_", dir="/data/yangyuming/tmp"))
+        # a temp bundle and load the writer separately.
+        # JET_TMPDIR can point to a volume with room for a large bundle.
+        tmp = Path(tempfile.mkdtemp(prefix="evalmem_", dir=os.environ.get("JET_TMPDIR") or None))
         shutil.copy(src / "config.json", tmp / "config.json")
         shutil.copytree(src / "tokenizer", tmp / "tokenizer")
         shutil.copytree(src / "backbone_config", tmp / "backbone_config")
