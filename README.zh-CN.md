@@ -182,6 +182,6 @@ Jeτ 沿着 Jev 开启的 System One 决策路线继续探索。感谢 [NanoJev]
 
 ## 版权与许可
 
-© 2026 Jet authors。Jeτ 的原创代码与文档采用 [PolyForm Noncommercial 1.0.0](LICENSE) 许可，可用于非商业研究、学习、修改与分享；商业使用需要另行取得授权。
+© 2026 Jetau authors。Jeτ 的原创代码与文档采用 [PolyForm Noncommercial 1.0.0](LICENSE) 许可，可用于非商业研究、学习、修改与分享；商业使用需要另行取得授权。
 
-公开发布本项目或基于 Jeτ 的衍生代码时，请保留版权与许可声明，并在项目文档中明确标注 **[Jeτ（Jetau）](https://github.com/Nomothings/Jet)** 及其来源。仓库中引入的 NanoJev 代码保留[原始 MIT 许可](jet/vendor/LICENSE)；第三方模型权重与数据遵循各自的许可。
+公开发布本项目或基于 Jeτ 的衍生代码时，请保留版权与许可声明，并在项目文档中明确标注 **[Jeτ（Jetau）](https://github.com/Nomothings/Jetau)** 及其来源。仓库中引入的 NanoJev 代码保留[原始 MIT 许可](jet/vendor/LICENSE)；第三方模型权重与数据遵循各自的许可。
