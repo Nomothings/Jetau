@@ -1,6 +1,6 @@
 ![Jeτ: Introducing System One Models for Long-Horizon Decision-Making](assets/jetau-banner.png)
 
-[简体中文](README.md) · [English](README.en.md)
+[English](README.md) · [简体中文](README.zh-CN.md)
 
 # Jeτ: Introducing System One Models for Long-Horizon Decision-Making
 
@@ -49,7 +49,7 @@ The trajectory can keep growing while the state stays within a fixed capacity. E
 A persistent state matters only if it can change with the task. We therefore introduce **Latent-State Recurrence (LSR)**. The existing state $s_k$ receives a recent segment of interaction $\tau_k$ and becomes the next state:
 
 $$
-s_{k+1}=\operatorname{LSR}(s_k,\tau_k).
+s_{k+1}=\mathrm{LSR}(s_k,\tau_k).
 $$
 
 Jeτ first holds recent observations, actions, and feedback in a short working window. At a write point, state embeddings pass through the model alongside the previous state and the recent interaction, producing new latent representations across its layers. The raw steps then leave the cache, while the updated state remains. The next set of candidate actions reads that state directly. New experience arrives; the previous state helps shape its successor; the successor carries the history forward.
