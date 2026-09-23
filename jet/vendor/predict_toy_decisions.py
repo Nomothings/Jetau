@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""从本地 toy checkpoint 批量预测；无 teacher/gold、无下载、无自回归生成。
+"""Batch predictions from a local decision-model checkpoint.
 
-Vendored into Jet: DecisionModel (originally defined in NanoJev's
+Vendored from NanoJev: DecisionModel (originally defined in
 train_toy_decisions.py, which this file loaded as a sibling module) is
 inlined below so this vendor module is self-contained."""
 import argparse
-import importlib.util
 import json
 import math
 import os
@@ -21,13 +20,13 @@ def unique_object(pairs):
     obj = {}
     for key, value in pairs:
         if key in obj:
-            raise ValueError(f"JSON 含重复键：{key}")
+            raise ValueError(f"Duplicate JSON key: {key}")
         obj[key] = value
     return obj
 
 
 def reject_nonfinite(value):
-    raise ValueError(f"JSON 不允许非有限数值：{value}")
+    raise ValueError(f"Non-finite JSON value: {value}")
 
 
 def read_json(path):
@@ -41,62 +40,62 @@ def nonempty_text(value):
 
 def validate_request(payload):
     if not isinstance(payload, dict) or set(payload) != {"states"}:
-        raise ValueError("输入必须为且仅为 {\"states\": [...]}，不需要 teacher 或 gold")
+        raise ValueError('Input must contain only {"states": [...]}')
     states = payload["states"]
     if not isinstance(states, list) or not states:
-        raise ValueError("states 必须是非空数组")
+        raise ValueError("states must be a nonempty array")
     seen_ids = set()
     for state in states:
         if not isinstance(state, dict) or set(state) != {"id", "state", "questions"}:
-            raise ValueError("每个 state 项必须只包含 id、state、questions")
+            raise ValueError("Each state must contain only id, state, and questions")
         if not nonempty_text(state["id"]) or state["id"] in seen_ids:
-            raise ValueError("state id 必须是唯一的非空字符串")
+            raise ValueError("state id must be a unique nonempty string")
         seen_ids.add(state["id"])
-        # 与trainer的 f-string 状态序列化一致；字符串最贴近本次训练数据。
+        # Keep state serialization aligned with the upstream trainer.
         if not isinstance(state["state"], (str, dict, list)):
-            raise ValueError("state 内容须为字符串、JSON对象或数组")
+            raise ValueError("state content must be a string, object, or array")
         if not state["state"]:
-            raise ValueError("state 内容不得为空")
+            raise ValueError("state content must not be empty")
         questions = state["questions"]
         if not isinstance(questions, dict) or not questions:
-            raise ValueError("questions 必须是非空对象")
+            raise ValueError("questions must be a nonempty object")
         for qid, question in questions.items():
             if not nonempty_text(qid) or not isinstance(question, dict):
-                raise ValueError("question ID 必须是非空字符串，内容必须为对象")
+                raise ValueError("question ID must be a nonempty string and its value an object")
             if set(question) - {"type", "instructions", "criteria"}:
-                raise ValueError(f"{state['id']}:{qid} 含不支持的 question 字段")
+                raise ValueError(f"{state['id']}:{qid} contains unsupported question fields")
             typ = question.get("type")
             if typ not in {"boolean", "choice", "score"} or not nonempty_text(question.get("instructions")):
-                raise ValueError(f"{state['id']}:{qid} 题型或 instructions 无效")
+                raise ValueError(f"{state['id']}:{qid} has an invalid type or instructions")
             if typ == "boolean":
                 if "criteria" in question:
                     criteria = question["criteria"]
                     if not isinstance(criteria, dict) or set(criteria) - {"false", "true"}:
-                        raise ValueError("Boolean criteria 只能是含 false 和/或 true 键的对象")
+                        raise ValueError("Boolean criteria must contain only false and/or true")
                     if not all(nonempty_text(value) for value in criteria.values()):
-                        raise ValueError("Boolean criterion 必须是非空字符串")
+                        raise ValueError("Boolean criterion must be a nonempty string")
             elif typ == "choice":
                 criteria = question.get("criteria")
                 if not isinstance(criteria, dict) or not 2 <= len(criteria) <= 255:
-                    raise ValueError("Choice criteria 必须是含 2–255 项的对象")
+                    raise ValueError("Choice criteria must contain 2–255 entries")
                 if not all(nonempty_text(k) and nonempty_text(v) for k, v in criteria.items()):
-                    raise ValueError("Choice 候选 ID 和语义描述必须是非空字符串")
+                    raise ValueError("Choice IDs and descriptions must be nonempty strings")
             else:
                 criteria = question.get("criteria")
                 if not isinstance(criteria, list) or not 2 <= len(criteria) <= 10:
-                    raise ValueError("Score criteria 必须是含 2–10 项的有序数组")
+                    raise ValueError("Score criteria must be an ordered array of 2–10 entries")
                 if not all(nonempty_text(value) for value in criteria):
-                    raise ValueError("Score 等级描述必须是非空字符串")
+                    raise ValueError("Score descriptions must be nonempty strings")
     return states
 
 
 def prepare_examples(payload, tokenizer, max_length):
-    """逐段encode、候选文本和EOS均精确遵循train_toy_decisions.load_examples。"""
+    """Encode segments and candidate paths as in the upstream trainer."""
     states = validate_request(payload)
     if type(max_length) is not int or max_length <= 0:
-        raise ValueError("max_length 必须为正整数")
+        raise ValueError("max_length must be a positive integer")
     if type(tokenizer.eos_token_id) is not int or tokenizer.eos_token_id < 0:
-        raise ValueError("checkpoint tokenizer 必须有合法 eos_token_id")
+        raise ValueError("checkpoint tokenizer needs a valid eos_token_id")
     examples = []
     for row in states:
         for qid, q in row["questions"].items():
@@ -120,7 +119,7 @@ def prepare_examples(payload, tokenizer, max_length):
                       + [tokenizer.eos_token_id] for t in texts]
             largest = max(map(len, leaves))
             if largest > max_length:
-                raise ValueError(f"{row['id']}:{qid} 候选路径为 {largest} token，超过 max_length={max_length}；未截断输入")
+                raise ValueError(f"{row['id']}:{qid} candidate needs {largest} tokens, exceeding max_length={max_length}")
             examples.append({"id": f"{row['id']}:{qid}", "state_id": row["id"], "qid": qid,
                              "type": typ, "candidate_ids": ids, "candidate_texts": texts,
                              "leaf_tokens": leaves})
@@ -129,7 +128,7 @@ def prepare_examples(payload, tokenizer, max_length):
 
 def complete_question_batches(examples, batch_questions=0):
     if type(batch_questions) is not int or batch_questions < 0:
-        raise ValueError("batch_questions 必须为非负整数；0 表示全部问题一次前向")
+        raise ValueError("batch_questions must be nonnegative; 0 batches all questions")
     size = batch_questions or len(examples)
     if not examples:
         return []
@@ -139,9 +138,9 @@ def complete_question_batches(examples, batch_questions=0):
 def answer_from_probabilities(example, probabilities):
     ids = example["candidate_ids"]
     if len(probabilities) != len(ids) or not all(math.isfinite(p) and 0 <= p <= 1 for p in probabilities):
-        raise ValueError("模型产生了无效概率")
+        raise ValueError("Model produced invalid probabilities")
     if abs(math.fsum(probabilities) - 1.0) > 1e-5:
-        raise ValueError("模型概率总和不为1")
+        raise ValueError("Model probabilities do not sum to one")
     best = max(range(len(ids)), key=probabilities.__getitem__)
     result = {"type": example["type"], "probabilities": dict(zip(ids, probabilities))}
     if example["type"] == "boolean":
@@ -157,16 +156,16 @@ def answer_from_probabilities(example, probabilities):
 def local_checkpoint_files(checkpoint_dir):
     root = Path(checkpoint_dir).expanduser().resolve(strict=True)
     if not root.is_dir():
-        raise ValueError("checkpoint-dir 必须是本地目录")
+        raise ValueError("checkpoint-dir must be a local directory")
     paths = {"run_config": root / "config.json", "body_config": root / "backbone_config",
              "tokenizer": root / "tokenizer", "weights": root / "best.safetensors"}
     for label, path in paths.items():
         if not path.exists():
-            raise ValueError(f"checkpoint 缺少 {label}: {path.name}")
+            raise ValueError(f"checkpoint is missing {label}: {path.name}")
     if not paths["run_config"].is_file() or not paths["weights"].is_file():
-        raise ValueError("config.json 和 best.safetensors 必须是文件")
+        raise ValueError("config.json and best.safetensors must be files")
     if not paths["body_config"].is_dir() or not paths["tokenizer"].is_dir():
-        raise ValueError("backbone_config 和 tokenizer 必须是目录")
+        raise ValueError("backbone_config and tokenizer must be directories")
     return root, paths
 
 
@@ -231,24 +230,23 @@ class DecisionModel(nn.Module):
 
 
 def load_decision_model_class():
-    # 原实现从同级 train_toy_decisions.py 动态加载；Jet vendored 版本将
-    # DecisionModel 内联到本模块，保持单文件自包含。
+    # DecisionModel is inlined here to keep the vendored module self-contained.
     return DecisionModel
 
 
 class DecisionPredictor:
-    """本地持久推理对象：构造时加载一次权重，每次predict批量计算完整问题。"""
+    """Load local weights once and batch complete questions for prediction."""
 
     def __init__(self, checkpoint_dir, max_length=None, device_name="cuda:0",
                  disable_native_triton=False, precision="bf16"):
         if precision not in {"fp32", "bf16"}:
-            raise ValueError("precision 必须为 fp32 或 bf16")
+            raise ValueError("precision must be fp32 or bf16")
         root, paths = local_checkpoint_files(checkpoint_dir)
         run_config = read_json(paths["run_config"])
         if not isinstance(run_config, dict) or run_config.get("set_head") not in {"none", "attention"}:
-            raise ValueError("checkpoint config 缺少合法 set_head")
+            raise ValueError("checkpoint config needs a valid set_head")
     
-        # 只读本地checkpoint；不读取.env、不访问Hub、不下载原始模型权重。
+        # Load only the local checkpoint; do not fetch weights from the Hub.
         os.environ["HF_HUB_OFFLINE"] = "1"
         os.environ["TRANSFORMERS_OFFLINE"] = "1"
         os.environ["HF_HUB_DISABLE_TELEMETRY"] = "1"
@@ -261,10 +259,10 @@ class DecisionPredictor:
             triton_utils.deregister_op_overrides()
         device = torch.device(device_name)
         if device.type != "cuda" or not torch.cuda.is_available():
-            raise ValueError("此原型推理入口需要可用CUDA设备；本命令未启用CPU或远程回退")
+            raise ValueError("This inference entry point requires a CUDA device")
         torch.cuda.set_device(device)
         if precision == "bf16" and not torch.cuda.is_bf16_supported():
-            raise ValueError("当前CUDA设备不支持本checkpoint推理配置所需的BF16")
+            raise ValueError("The current CUDA device does not support BF16")
         torch.backends.cuda.matmul.allow_tf32 = False
     
         tokenizer = AutoTokenizer.from_pretrained(str(paths["tokenizer"]), local_files_only=True,
@@ -276,12 +274,12 @@ class DecisionPredictor:
         body_config.use_cache = False
         limit = run_config.get("max_length", 512) if max_length is None else max_length
         if type(limit) is not int or limit <= 0:
-            raise ValueError("max-length 必须为正整数")
+            raise ValueError("max-length must be a positive integer")
         context_limit = getattr(body_config, "max_position_embeddings", None)
         if isinstance(context_limit, int) and limit > context_limit:
-            raise ValueError("max-length 超过backbone配置声明的上下文长度")
+            raise ValueError("max-length exceeds the backbone context limit")
     
-        # from_config 只构造结构；全部参数由best.safetensors加载，不用from_pretrained下载底座。
+        # Build the architecture from config; load all weights from best.safetensors.
         body = AutoModel.from_config(body_config, attn_implementation="sdpa", trust_remote_code=False).float()
         DecisionModel = load_decision_model_class()
         model = DecisionModel(body, run_config["set_head"])
@@ -304,7 +302,7 @@ class DecisionPredictor:
     def predict(self, payload, batch_questions=0, temperature=1.0):
         states = validate_request(payload)
         if not isinstance(temperature, (int, float)) or isinstance(temperature, bool) or not math.isfinite(temperature) or temperature <= 0:
-            raise ValueError("temperature 必须为有限正数")
+            raise ValueError("temperature must be finite and positive")
         torch = self._torch
         model, tokenizer = self.model, self.tokenizer
         root, run_config, limit = self.root, self.run_config, self.limit
@@ -323,7 +321,7 @@ class DecisionPredictor:
                     k = len(example["candidate_ids"])
                     scores = values[:k].float()
                     if not torch.isfinite(scores).all():
-                        raise ValueError("模型产生非有限logits，未返回部分预测")
+                        raise ValueError("Model produced non-finite logits")
                     probabilities = (scores / temperature).softmax(-1).cpu().tolist()
                     outputs[example["state_id"]]["answers"][example["qid"]] = answer_from_probabilities(example, probabilities)
         return {
@@ -331,7 +329,7 @@ class DecisionPredictor:
             "checkpoint": {"directory": str(root), "base_model": run_config.get("model"),
                            "base_revision": run_config.get("resolved_model_revision"), "set_head": run_config["set_head"]},
             "temperature": {"value": float(temperature), "fitted_by_this_command": False,
-                            "note": "显式应用给定标量；默认1不表示模型已校准。"},
+                            "note": "The specified scale is applied; 1.0 does not imply calibration."},
             "execution": {"device": str(device), "parameter_storage": "float32", "precision": precision,
                           "forward_autocast": "bfloat16" if precision == "bf16" else "disabled",
                           "states": len(states), "questions": len(examples),
@@ -347,11 +345,11 @@ class DecisionPredictor:
 
 def predict(payload, checkpoint_dir, temperature=1.0, batch_questions=0, max_length=None,
             device_name="cuda:0", disable_native_triton=False, precision="bf16"):
-    """兼容原一次性接口；连续调用请复用DecisionPredictor实例。"""
+    """One-shot interface; reuse DecisionPredictor for repeated calls."""
     # Fail on malformed input before loading a checkpoint, as in the original entry point.
     validate_request(payload)
     if not isinstance(temperature, (int, float)) or isinstance(temperature, bool) or not math.isfinite(temperature) or temperature <= 0:
-        raise ValueError("temperature 必须为有限正数")
+        raise ValueError("temperature must be finite and positive")
     engine = DecisionPredictor(checkpoint_dir, max_length=max_length, device_name=device_name,
                                disable_native_triton=disable_native_triton, precision=precision)
     return engine.predict(payload, batch_questions=batch_questions, temperature=temperature)
@@ -360,15 +358,15 @@ def predict(payload, checkpoint_dir, temperature=1.0, batch_questions=0, max_len
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint-dir", required=True)
-    parser.add_argument("--input", required=True, help="含states数组的JSON文件")
-    parser.add_argument("--output", help="不设置时将完整结果输出到stdout")
+    parser.add_argument("--input", required=True, help="JSON file containing a states array")
+    parser.add_argument("--output", help="write output here, or to stdout when omitted")
     parser.add_argument("--temperature", type=float, default=1.0)
-    parser.add_argument("--batch-questions", type=int, default=0, help="0=全部问题一次前向；其他值按完整问题分批")
-    parser.add_argument("--max-length", type=int, help="默认使用checkpoint训练配置；超长输入报错，不截断")
+    parser.add_argument("--batch-questions", type=int, default=0, help="0 batches all questions")
+    parser.add_argument("--max-length", type=int, help="default: checkpoint config; oversized input raises an error")
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--precision", choices=["fp32", "bf16"], default="bf16",
-                        help="bf16沿用训练评估默认；fp32关闭autocast用于数值参照")
-    parser.add_argument("--disable-native-triton", action="store_true", help="沿用trainer的进程内ATen回退开关")
+                        help="bf16 is the training default; fp32 disables autocast")
+    parser.add_argument("--disable-native-triton", action="store_true", help="use the ATen fallback")
     args = parser.parse_args()
     try:
         result = predict(read_json(args.input), args.checkpoint_dir, args.temperature, args.batch_questions,

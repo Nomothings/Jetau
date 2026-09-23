@@ -4,6 +4,15 @@
 
 # Jeτ: Introducing System One Models for Long-Horizon Decision-Making
 
+[![许可：PolyForm 非商业](https://img.shields.io/badge/License-PolyForm%20Noncommercial-24333B)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-PyTorch-24333B)](requirements.txt)
+[![模型](https://img.shields.io/badge/Model-0.6B-24333B)](#05-jeτ-06b从语言模型到决策体)
+[![任务](https://img.shields.io/badge/Evaluation-6%20tasks-24333B)](#06-每一步选择的背后)
+
+**阅读导航** · [研究背景](#01-从语言生成到结构化决策) · [潜在状态](#04-漫长的经历留在潜在空间) · [实验结果](#06-每一步选择的背后) · [快速开始](#08-快速开始)
+
+---
+
 ## 01 从语言生成到结构化决策
 
 最近火爆的 [Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev)，瞄准了软件运行中最常见的决定性瞬间：做决定。网页上该点哪里，任务该交给哪个工具，游戏里下一步该往哪走。这些问题的答案常常只是一个选项，却会在一次任务中反复出现。
@@ -131,13 +140,19 @@ Jeτ 带着持续潜在状态，走进六项不同的任务。每次行动，它
 
 仓库已提供六项任务的轨迹数据，以及 Jeτ 的训练和评测入口。下面以迷宫为例，从基础决策模型出发，训练一个带持续潜在状态的 Jeτ，再让它独立走完迷宫。以下命令以 Linux 和支持 BF16 的 CUDA GPU 为例。
 
+### 1. 配置环境
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
+### 2. 准备基础决策模型
+
 将 [NanoJev](https://github.com/TianyuCodings/NanoJev) 的兼容决策模型权重放在 `checkpoints/NanoJev-unified/`。该目录需要包含 `config.json`、`best.safetensors`、`tokenizer/` 和 `backbone_config/`；模型权重未随代码仓库提交。
+
+### 3. 训练 Jeτ
 
 ```bash
 python -m jet.train_jet_bs \
@@ -151,6 +166,8 @@ python -m jet.train_jet_bs \
   --max-train-steps 20 --mem-fraction 0.9
 ```
 
+### 4. 评测完整任务
+
 训练完成后，Jeτ 的模型权重保存在 `checkpoints/jet/jet06_maze/`。用闭环评测让它从起点行动，直到找到终点或用完步数：
 
 ```bash
@@ -163,6 +180,18 @@ python -m jet.eval_games_closed \
 ```
 
 结果文件会给出完成率和到达终点所需的步数。已有训练好的 Jeτ 权重时，可以直接运行评测命令；贪吃蛇和宝可梦使用同一个游戏评测入口，其余任务的入口分别位于 `jet/eval_alfworld_closed.py`、`jet/eval_mem.py` 和 `jet/eval_webshop_closed.py`。
+
+### 仓库结构
+
+| 路径 | 内容 |
+|---|---|
+| [`jet/latent_state.py`](jet/latent_state.py) | 持续潜在状态与可训练写入器 |
+| [`jet/train_jet_bs.py`](jet/train_jet_bs.py) | 批式序贯训练 |
+| [`jet/jet_policy.py`](jet/jet_policy.py) | 带状态的动作选择 |
+| [`data/`](data/README.md) | 六项任务的数据与来源 |
+| [`results/`](results/README.md) | 步级与完整任务结果 |
+
+仓库中的轨迹数据可直接用于训练与步级评测。ALFWorld 和 WebShop 的交互评测还需要上游原始数据；环境与数据来源见[数据说明](data/README.md)。
 
 ## 09 System One 的长程时刻
 

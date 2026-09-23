@@ -1,4 +1,4 @@
-"""Convert Mind2Web raw task instances into unified Long-Jev episode JSONL.
+"""Convert Mind2Web task instances into Jeτ episode JSONL.
 
 Episode = one annotation instance (annotation_id) from the official Mind2Web
 release (osunlp/Mind2Web). Each action step becomes a choice point: candidates

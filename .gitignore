@@ -1,6 +1,10 @@
 __pycache__/
 *.pyc
 .venv/
-checkpoints/jet/
+checkpoints/*/
+data/**/raw/
+data/**/corpus_cache.pkl
+results/**/*.json
+logs/
 *.part
 .DS_Store

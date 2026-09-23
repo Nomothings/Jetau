@@ -1,49 +1,11 @@
 #!/usr/bin/env python3
-"""Interactive closed-loop ALFWorld evaluator (official protocol aligned).
-
-Protocol: one episode = one official json_2.1.1 game from the valid_unseen
-split. The deterministic PDDL world model (reused from gen_data_alfworld.py)
-renders observations and executes commands; the policy picks one command per
-step from a gen_data-style candidate set (gold + template distractors,
-deterministically sampled per (seed, episode, step)). Mistakes are allowed:
-the episode only ends when the goal predicates are satisfied (success) or the
-50-step budget is exhausted (fail) -- matching the official ALFWorld
-interactive evaluation (max_steps=50, success judged on the final goal only).
-
-Goal predicates follow the alfred goal-PDDL templates, instance-level, with
-the involved entities identified from the official walkthrough:
-  pick_and_place_simple        (isIn obj recep)
-  pick_two_obj_and_place       (isIn obj1 recep) (isIn obj2 recep)
-  pick_heat_then_place...      (isIn obj recep) (isHot obj)
-  pick_cool_then_place...      (isIn obj recep) (isCool obj)
-  pick_clean_then_place...     (isIn obj recep) (isClean obj)
-  look_at_obj_in_light         (nextTo obj lamp) (isOn lamp)
-
-Policies (jet_policy.py interface act(obs, candidates) -> key):
-  teacher    -- follows the walkthrough (world-model feasibility self-check;
-                must be 100% success or the executor/goal check is buggy)
-  nomem      -- step-local scoring
-  promptmem  -- sliding-window text history
-  jet        -- streaming latent memory. Uses a subclass whose act() routes
-                leaf scoring through train_jet_bs.score_leaves_bs
-                (BroadcastNoStoreCache): the stock JetPolicy.act inline
-                DynamicCache view crashes on transformers>=5 when the leaf
-                batch > 1 (see the jet06 logs of the game grid).
-
-Usage:
-  python eval_alfworld_closed.py --policy teacher --episodes 134 --out t.json
-  python eval_alfworld_closed.py --policy nomem --checkpoint ../../checkpoints/NanoJev-unified \
-      --model-name base --episodes 10 --out nomem.json --mem-fraction 0.25
-"""
+"""Evaluate interactive ALFWorld tasks with a deterministic PDDL world model."""
 import argparse
 import json
 import random
 import re
-import sys
 import time
 from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from jet.gen_data_alfworld import (
     CAND_HARD_CAP, CAND_TARGET_MAX, CAND_TARGET_MIN, EVENT_MAX, OBS_MAX,
@@ -51,12 +13,8 @@ from jet.gen_data_alfworld import (
     intro_text, summarize_event, truncate_middle,
 )
 
-DEFAULT_GAMES = "/data/yangyuming/Long-Jev/data/benchmarks/alfworld/raw/games_valid_unseen.jsonl"
+DEFAULT_GAMES = "data/alfworld/raw/games_valid_unseen.jsonl"
 MAX_STEPS = 50  # official ALFWorld interactive protocol budget
-
-# write window each Jet model was trained with (must match at inference)
-TRAIN_WINDOW = {"af_jet": 6, "jet17_alfworld": 3, "jet06_mix": 6, "jet17_mix": 2}
-
 
 # ---------------------------------------------------------------------------
 # Goal derivation (alfred goal-PDDL templates, instance level)
@@ -254,69 +212,21 @@ class TeacherPolicy:
 def load_policy(args):
     if args.policy == "teacher":
         return TeacherPolicy()
-    from jet_policy import JetPolicy, NoMemPolicy, PromptMemPolicy
+    from jet.jet_policy import JetPolicy, NoMemPolicy, PromptMemPolicy
     if args.policy == "nomem":
         return NoMemPolicy(args.checkpoint, "alfworld", mem_fraction=args.mem_fraction)
     if args.policy == "promptmem":
         return PromptMemPolicy(args.checkpoint, "alfworld", mem_fraction=args.mem_fraction)
     if args.policy == "jet":
-        return FixedJetPolicy(args.checkpoint, "alfworld",
-                              note_window=TRAIN_WINDOW.get(args.model_name, 6),
-                              note_window_override=TRAIN_WINDOW.get(args.model_name, 6),
-                              mem_fraction=args.mem_fraction)
+        return JetPolicy(args.checkpoint, "alfworld",
+                         note_window=args.note_window,
+                         mem_fraction=args.mem_fraction)
     raise ValueError(args.policy)
 
 
-class FixedJetPolicy:
-    """JetPolicy with act() routed through train_jet_bs.score_leaves_bs.
-
-    Delegate everything else (writer bundle split, streaming memory, remember
-    semantics) to the stock JetPolicy; only the batched leaf forward is
-    replaced because the inline DynamicCache view in JetPolicy.act crashes on
-    transformers>=5 for candidate batches > 1.
-    """
-    name = "jet"
-
-    def __init__(self, *a, **kw):
-        from jet_policy import JetPolicy
-        self._inner = JetPolicy(*a, **kw)
-
-    def __getattr__(self, item):
-        return getattr(self._inner, item)
-
-    def act(self, obs, candidates, feedback=None):
-        from common import leaf_text, tokenize_segments
-        from train_jet_bs import score_leaves_bs
-        pol = self._inner
-        seg = tokenize_segments(pol.tok, [f"State:\n{obs}\n"])
-        if pol.ec.length() + len(seg) + 64 > pol.runtime.limit:
-            pol.ec.rebuild(0, pol.note_cap)  # emergency compress: keep slots only
-        pol.ec.add_segment("step", seg, grad=False)
-        keys = list(candidates)
-        leaf_ids = [pol.tok.encode(leaf_text(k, candidates[k]), add_special_tokens=False)
-                    + [pol.tok.eos_token_id] for k in keys]
-        z = score_leaves_bs(pol.model, leaf_ids, pol.ec.cache, pol.device,
-                            grad=False, pos_start=pol.ec.pos)
-        return keys[int(z.argmax().item())]
-
-
 def reset_policy(pol, task="alfworld"):
-    """Per-episode reset of streaming/prompt memory (see eval_games_closed.py)."""
-    if hasattr(pol, "_inner"):  # FixedJetPolicy
-        reset_policy(pol._inner, task)
-        return
-    if hasattr(pol, "ec"):
-        from bench_common import TASK_HEADERS
-        from common import tokenize_segments
-        from train_mem_generic import EpisodeCacheC6
-        from unified_game_pipeline import POLICY_QUESTION
-        pol.ec = EpisodeCacheC6(pol.model, pol.tok, pol.device, None)
-        pol.ec.add_segment("header", tokenize_segments(
-            pol.tok, [TASK_HEADERS[task],
-                      f"Question type: choice\nQuestion:\n{POLICY_QUESTION}\n"]), grad=False)
-        pol.steps_in_window = 0
-    if hasattr(pol, "hist"):
-        pol.hist = []
+    if hasattr(pol, "reset"):
+        pol.reset()
 
 
 def run_episode(rec, pol, seed, ep_idx, trace=None):
@@ -355,7 +265,8 @@ def main():
     p.add_argument("--games", default=DEFAULT_GAMES)
     p.add_argument("--policy", choices=["teacher", "nomem", "promptmem", "jet"], required=True)
     p.add_argument("--checkpoint", default=None)
-    p.add_argument("--model-name", default=None, help="tag / TRAIN_WINDOW key for jet")
+    p.add_argument("--model-name", default=None, help="label for the output record")
+    p.add_argument("--note-window", type=int, default=6)
     p.add_argument("--episodes", type=int, default=134)
     p.add_argument("--seed", type=int, default=13)
     p.add_argument("--out", required=True)

@@ -4,6 +4,15 @@
 
 # Jeτ: Introducing System One Models for Long-Horizon Decision-Making
 
+[![License: PolyForm Noncommercial](https://img.shields.io/badge/License-PolyForm%20Noncommercial-24333B)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-PyTorch-24333B)](requirements.txt)
+[![Model](https://img.shields.io/badge/Model-0.6B-24333B)](#05-jeτ-06b-from-language-model-to-decision-model)
+[![Tasks](https://img.shields.io/badge/Evaluation-6%20tasks-24333B)](#06-behind-every-choice)
+
+**Explore** · [The idea](#01-from-language-generation-to-structured-decisions) · [Latent state](#04-a-long-history-held-in-latent-space) · [Results](#06-behind-every-choice) · [Quick start](#08-quick-start)
+
+---
+
 ## 01 From Language Generation to Structured Decisions
 
 [Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev) has brought a familiar but often overlooked moment into focus: the instant software must choose. Which element should a browser click? Which tool should receive a task? Which move should an agent make in a game? The answer may be a single option, yet moments like these recur throughout an interaction.
@@ -131,13 +140,19 @@ In **WebShop**, the model searches, browses, and ultimately purchases a product,
 
 The repository includes episode data for all six tasks, along with training and evaluation entry points. The maze offers a short path through the code: start from a base decision model, train Jeτ with Persistent Latent State, then let it navigate on its own. The commands below assume Linux and a CUDA GPU with BF16 support.
 
+### 1. Set up the environment
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
+### 2. Add the base decision model
+
 Place a compatible [NanoJev](https://github.com/TianyuCodings/NanoJev) decision-model bundle at `checkpoints/NanoJev-unified/`. It should contain `config.json`, `best.safetensors`, `tokenizer/`, and `backbone_config/`. Model weights are not committed to this repository.
+
+### 3. Train Jeτ
 
 ```bash
 python -m jet.train_jet_bs \
@@ -151,6 +166,8 @@ python -m jet.train_jet_bs \
   --max-train-steps 20 --mem-fraction 0.9
 ```
 
+### 4. Evaluate a complete task
+
 The trained Jeτ bundle is saved in `checkpoints/jet/jet06_maze/`. Run a closed-loop evaluation to see whether it reaches the goal before its move budget expires:
 
 ```bash
@@ -163,6 +180,18 @@ python -m jet.eval_games_closed \
 ```
 
 The output reports completion rate and steps to the goal. If you already have a trained Jeτ bundle, you can go straight to evaluation. Snake and Pokémon use the same game evaluator; entry points for the remaining tasks are `jet/eval_alfworld_closed.py`, `jet/eval_mem.py`, and `jet/eval_webshop_closed.py`.
+
+### Repository map
+
+| Path | What it contains |
+|---|---|
+| [`jet/latent_state.py`](jet/latent_state.py) | Persistent latent state and its learned writer |
+| [`jet/train_jet_bs.py`](jet/train_jet_bs.py) | Batched sequential training |
+| [`jet/jet_policy.py`](jet/jet_policy.py) | Stateful action selection |
+| [`data/`](data/README.md) | Six task datasets and data provenance |
+| [`results/`](results/README.md) | Step-level and complete-task results |
+
+The included episodes support training and step-level evaluation. Interactive ALFWorld and WebShop evaluation also requires their upstream raw data; the [data notes](data/README.md) describe these environments.
 
 ## 09 System One Meets the Long Horizon
 

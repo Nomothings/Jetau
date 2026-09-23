@@ -1,4 +1,4 @@
-"""Generate unified episode JSONL for the ALFWorld benchmark (Long-Jev format).
+"""Generate Jeτ episode JSONL for the ALFWorld benchmark.
 
 Source: official ALFWorld json_2.1.1 games (TextWorld + PDDL). Each episode is one
 complete expert trajectory replayed against a deterministic world model parsed from

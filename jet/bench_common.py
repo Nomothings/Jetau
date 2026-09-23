@@ -11,7 +11,7 @@ Grid files (maze*/snake*) use the same step layout with legacy top-level keys
 import json
 from pathlib import Path
 
-from jet.vendor.unified_game_pipeline import POLICY_QUESTION
+POLICY_QUESTION = "Choose the next action that maximizes the probability of completing the stated task successfully before its deadline. Use the visible state, action descriptions, remaining time, and recorded history."
 
 TASK_HEADERS = {
     "maze": "Maze navigation episode record. Each step lists the visible observation, the asked question, the decision taken, and its result.\n",

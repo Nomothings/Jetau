@@ -1,13 +1,5 @@
-"""Shared text templates, tokenization and model loading for Jet.
-
-Trimmed Jet copy of the memexp common module: only the pieces every trainer
-and evaluator needs (leaf rendering, segment tokenization, decision-model
-loading, bundle saving) plus the canonical POLICY_QUESTION constant.
-"""
+"""Text templates, tokenization, and model loading for Jeτ."""
 from pathlib import Path
-
-from jet.vendor.unified_game_pipeline import POLICY_QUESTION  # noqa: F401  (re-exported)
-
 
 def leaf_text(key, description):
     return f"Candidate:\n{key}: {description}\nDecision:"

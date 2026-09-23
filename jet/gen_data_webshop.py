@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Offline WebShop episode generator for the Long-Jev benchmark suite.
+"""Generate offline WebShop episodes for Jeτ.
 
 Produces unified episode JSONL (one episode per line):
   {"task":"webshop","episode_id":"webshop-<split>-<idx>","split":...,

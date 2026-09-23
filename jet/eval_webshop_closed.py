@@ -29,12 +29,8 @@ import argparse
 import json
 import pickle
 import random
-import sys
 import time
 from pathlib import Path
-
-HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE))
 
 from jet.gen_data_webshop import (
     DISPLAY_RESULTS, EVENT_LIMIT, BM25, TOKEN_RE, build_goals, get_reward,
@@ -46,14 +42,8 @@ MAX_ACTIONS = 10
 SUCCESS_STRICT = 0.999     # r == 1.0 full match
 SUCCESS_SOFT = 0.7         # task-card dataset threshold, reported for reference
 
-# write window each Jet model was trained with (must match at inference;
-# from each model's train_log.json config)
-TRAIN_WINDOW = {"ws_jet": 6, "jet17_webshop": 3, "jet06_mix": 6, "jet17_mix": 2,
-                "jet06_maze": 6, "jet17_maze": 3, "jet06_snake": 6,
-                "jet17_snake": 3, "jet06_pokemon": 6, "jet17_pokemon": 2}
-
-DEFAULT_DATA_DIR = "/data/yangyuming/Long-Jev/data/benchmarks/webshop/raw"
-DEFAULT_CACHE = "/data/yangyuming/tmp/webshop_closed_corpus.pkl"
+DEFAULT_DATA_DIR = "data/webshop/raw"
+DEFAULT_CACHE = "data/webshop/corpus_cache.pkl"
 
 
 # ------------------------------------------------------------------ corpus
@@ -385,33 +375,21 @@ class WebShopSession:
 
 # ---------------------------------------------------------------- policies
 def build_policy(args):
-    from jet_policy import JetPolicy, NoMemPolicy, PromptMemPolicy
+    from jet.jet_policy import JetPolicy, NoMemPolicy, PromptMemPolicy
     if args.policy == "nomem":
         return NoMemPolicy(args.checkpoint, "webshop",
                            mem_fraction=args.mem_fraction)
     if args.policy == "promptmem":
         return PromptMemPolicy(args.checkpoint, "webshop",
                                mem_fraction=args.mem_fraction)
-    nw = TRAIN_WINDOW.get(args.model_name, 6)
-    return JetPolicy(args.checkpoint, "webshop", note_window=nw,
-                     note_window_override=nw, mem_fraction=args.mem_fraction)
+    return JetPolicy(args.checkpoint, "webshop", note_window=args.note_window,
+                     mem_fraction=args.mem_fraction)
 
 
 def reset_policy(pol):
     """Reset per-episode memory state (streaming cache / text history)."""
-    if hasattr(pol, "ec"):
-        from bench_common import TASK_HEADERS
-        from common import tokenize_segments
-        from train_mem_generic import EpisodeCacheC6
-        from unified_game_pipeline import POLICY_QUESTION
-        pol.ec = EpisodeCacheC6(pol.model, pol.tok, pol.device, None)
-        pol.ec.add_segment("header", tokenize_segments(
-            pol.tok, [TASK_HEADERS["webshop"],
-                      f"Question type: choice\nQuestion:\n{POLICY_QUESTION}\n"]),
-            grad=False)
-        pol.steps_in_window = 0
-    if hasattr(pol, "hist"):
-        pol.hist = []
+    if hasattr(pol, "reset"):
+        pol.reset()
 
 
 # ------------------------------------------------------------------- main
@@ -421,7 +399,8 @@ def main():
                     choices=["teacher", "nomem", "promptmem", "jet"],
                     required=True)
     ap.add_argument("--checkpoint", default="")
-    ap.add_argument("--model-name", default="", help="key into TRAIN_WINDOW for jet")
+    ap.add_argument("--model-name", default="", help="label for the output record")
+    ap.add_argument("--note-window", type=int, default=6)
     ap.add_argument("--episodes", type=int, default=500)
     ap.add_argument("--offset", type=int, default=0,
                     help="start index within the official bucket")

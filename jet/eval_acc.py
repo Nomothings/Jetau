@@ -1,4 +1,4 @@
-"""Step-level accuracy evaluation on unified-format episodes (teacher-forced C1).
+"""Step-level accuracy evaluation on unified-format episodes.
 
 Works zero-shot with the released NanoJev checkpoint or with any bundle saved
 by train_generic.py. Reports top-1 accuracy over each step's candidate set.

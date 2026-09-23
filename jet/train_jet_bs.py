@@ -1,16 +1,5 @@
 #!/usr/bin/env python3
-"""Jet trainer with a batched-streaming operator (bs).
-
-Same Jet (c7) mechanics as train_jet.py / train_mem_generic.py -- streaming
-episode caches, latent write head, windowed BPTT, tiered rebuild -- with the
-candidate-leaf scoring phase batched: all K leaves of a decision share the
-same cache prefix, so they run as ONE padded forward with explicit absolute
-position ids instead of K separate batch-1 forwards. Same math, one kernel:
-~3-5x faster steps. Dev evaluation uses the same batched scorer.
-
-Numerical equivalence gate: with an identical bundle and seed, the initial
-dev CE printed here must match train_mem_generic --arm c7 on the same inputs.
-"""
+"""Train Jeτ with recurrent latent state and batched candidate scoring."""
 import argparse
 import json
 import random
@@ -19,12 +8,10 @@ from pathlib import Path
 
 import torch
 
-from jet.bench_common import TASK_HEADERS, load_episodes
+from jet.bench_common import POLICY_QUESTION, TASK_HEADERS, load_episodes
 from jet.common import leaf_text, load_decision_model, save_bundle, tokenize_segments
-from jet.stream_core import NOTE_PROMPT, EpisodeCache, detach_cache, forward_segment
-from jet.train_mem_generic import (EpisodeCacheC6, LatentNoteWriter, SafeRebuildCache,
-                                   step_outcome, write_latent_notes)
-from jet.vendor.unified_game_pipeline import POLICY_QUESTION
+from jet.latent_state import (LatentStateCache, LatentStateWriter,
+                              detach_cache, step_outcome, write_latent_state)
 from transformers import DynamicCache
 
 
@@ -53,8 +40,7 @@ def score_leaves_bs(model, leaf_ids, cache, device, grad=True, pos_start=None):
     """Batched leaf scoring: one padded forward for all K candidate leaves.
 
     pos_start: absolute position of the first leaf token (required for caches
-    with position gaps; for plain c3-style contiguous caches pass the cache
-    length)."""
+    with position gaps)."""
     past_len = cache.get_seq_length()
     K = len(leaf_ids)
     maxlen = max(len(x) for x in leaf_ids)
@@ -88,7 +74,7 @@ def episode_losses_jet_bs(model, tokenizer, task, ep, device, max_length, writer
                           note_cap=4, max_train_steps=None):
     header = [TASK_HEADERS[task], f"Question type: choice\nQuestion:\n{POLICY_QUESTION}\n"]
     n = len(ep["steps"])
-    ec = EpisodeCacheC6(model, tokenizer, device, None)
+    ec = LatentStateCache(model, tokenizer, device)
     ec.add_segment("header", tokenize_segments(tokenizer, header), grad=train)
     losses, actions_ok, window_losses, steps_in_window = [], 0, [], 0
     limit = n if (max_train_steps is None or not train) else min(n, max_train_steps)
@@ -117,8 +103,8 @@ def episode_losses_jet_bs(model, tokenizer, task, ep, device, max_length, writer
             tokenizer, [step_outcome(s["action"], s["event"])]), grad=train)
         steps_in_window += 1
         if steps_in_window >= note_window:
-            write_latent_notes(model, writer, ec, device, grad=train)
-            ec.rebuild(0, note_cap)
+            write_latent_state(model, writer, ec, device, grad=train)
+            ec.rebuild(note_cap)
     if train and window_losses:
         (sum(window_losses) / max(n, 1) * scale).backward()
     return losses, actions_ok
@@ -152,7 +138,7 @@ def main():
     device = next(model.parameters()).device
     max_length = runtime.limit
     note_token_id = tokenizer.encode("|", add_special_tokens=False)[0]
-    writer = LatentNoteWriter(model.backbone.config, a.note_slots).to(device)
+    writer = LatentStateWriter(model.backbone.config, a.note_slots).to(device)
     with torch.no_grad():
         base = model.backbone.get_input_embeddings().weight[note_token_id]
         writer.note_embed.copy_(base.unsqueeze(0) + 0.01 * torch.randn_like(writer.note_embed))
