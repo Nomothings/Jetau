@@ -1,7 +1,7 @@
 # Checkpoints
 
 Model bundles are NOT committed to git (`.gitignore` keeps only the directory
-skeleton). Two backbone bundles are expected here, plus the 12 trained Jet
+skeleton). Two backbone bundles are expected here, plus the 12 trained Jeτ
 bundles under `jet/`.
 
 ## Backbones
@@ -23,14 +23,14 @@ python -m jet.build_backbone_bundle --model checkpoints/Qwen3-1.7B-Base \
 The resulting bundle loads unchanged as `--checkpoint checkpoints/decision-qwen3-1.7b`
 in every trainer/evaluator.
 
-## Trained Jet bundles (`jet/`)
+## Trained Jeτ bundles (`jet/`)
 
 `checkpoints/jet/` holds the 12 fleet bundles written by
 `scripts/dispatch_jet_fleet.sh`:
 
 ```
-jet/jet06_{maze,snake,pokemon,alfworld,mind2web,webshop}   # Jet on NanoJev-unified (0.6B)
-jet/jet17_{maze,snake,pokemon,alfworld,mind2web,webshop}   # Jet on decision-qwen3-1.7b
+jet/jet06_{maze,snake,pokemon,alfworld,mind2web,webshop}   # Jeτ on NanoJev-unified (0.6B)
+jet/jet17_{maze,snake,pokemon,alfworld,mind2web,webshop}   # Jeτ on decision-qwen3-1.7b
 ```
 
 Each bundle is a full decision-model snapshot (`config.json`, `backbone_config/`,
