@@ -182,6 +182,6 @@ We are also grateful to everyone who shares code, data, models, and ideas. Progr
 
 ## Copyright and License
 
-© 2026 Jet authors. Jeτ's original code and documentation are licensed under [PolyForm Noncommercial 1.0.0](LICENSE). Noncommercial research, study, modification, and sharing are permitted; commercial use requires separate authorization.
+© 2026 Jetau authors. Jeτ's original code and documentation are licensed under [PolyForm Noncommercial 1.0.0](LICENSE). Noncommercial research, study, modification, and sharing are permitted; commercial use requires separate authorization.
 
-If you publish this project or derivative code built on Jeτ, retain the copyright and license notices and clearly credit **[Jeτ (Jetau)](https://github.com/Nomothings/Jet)** and its source in your project documentation. Vendored NanoJev code remains under its [original MIT license](jet/vendor/LICENSE). Third-party model weights and datasets remain subject to their own terms.
+If you publish this project or derivative code built on Jeτ, retain the copyright and license notices and clearly credit **[Jeτ (Jetau)](https://github.com/Nomothings/Jetau)** and its source in your project documentation. Vendored NanoJev code remains under its [original MIT license](jet/vendor/LICENSE). Third-party model weights and datasets remain subject to their own terms.
