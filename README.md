@@ -112,20 +112,20 @@ All scripts honor `PYTHON=<interpreter>` and run every entry point as
 
 ## Results
 
-Step-level accuracy (full official test splits, teacher-forced) and official-protocol
-interactive metrics; see  and .
+Step-level accuracy on the full official test splits, plus official-protocol
+interactive metrics (see `results/RESULTS.md` and `results/RESULTS_CLOSED.md`).
 
-| Task | No memory | Prompt memory (sliding) | **Jet-0.6B** | 
+| Task (official protocol) | No memory | Prompt memory (sliding) | **Jet-0.6B** |
 |---|---:|---:|---:|
-| maze (completion, 64-step budget) | 0% | ~0% | **80%** (15.1 steps) |
-| snake (completion) | 0% | 0% | **88%** |
-| pokemon (battle win rate) | 3% | 1% | **48%** |
-| ALFWorld (interactive SR, unseen-134, <=50 steps) | 0% | (running) | **76.1%** |
-| WebShop (interactive reward / strict SR) | 0.37 / 10% | 0.40 / 12% | **0.67 / 43%** |
-| Mind2Web (step acc, official metric) | 0.132 | 0.133 | **0.631** |
+| maze — completion rate, 64-step budget | 0% | ~0% | **80%** (15.1 steps) |
+| snake — completion rate | 0% | 0% | **88%** |
+| pokemon — battle win rate | 3% | 1% | **48%** |
+| ALFWorld — interactive SR, unseen-134, <=50 steps | 0% | (running) | **76.1%** |
+| WebShop — interactive reward / strict SR | 0.37 / 10% | 0.40 / 12% | **0.67 / 43%** |
+| Mind2Web — step acc (official metric) | 0.132 | 0.133 | **0.631** |
 
-Trained-baseline arms (same data, updates, seed) are in flight; this table uses the
-training-free released checkpoint for the baselines.
+Baseline rows use the training-free released checkpoint; trained-baseline arms
+(same data, same updates, same seed) are being finalized.
 
 ## Limitations
 
