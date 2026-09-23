@@ -1,6 +1,6 @@
 ![Jeτ: Introducing System One Models for Long-Horizon Decision-Making](assets/jetau-banner.png)
 
-[简体中文](README.md) · [English](README.en.md)
+[English](README.md) · [简体中文](README.zh-CN.md)
 
 # Jeτ: Introducing System One Models for Long-Horizon Decision-Making
 
@@ -49,7 +49,7 @@ Jev 把判断直接变成模型的输出。作为 **System One Model**，它接�
 有了持续潜在状态，接下来要让它随行动真正演化。我们进一步提出 **Latent-State Recurrence（LSR，潜在状态递推）**：已有状态 $s_k$ 接收最近一段交互 $\tau_k$，生成下一段状态：
 
 $$
-s_{k+1}=\operatorname{LSR}(s_k,\tau_k).
+s_{k+1}=\mathrm{LSR}(s_k,\tau_k).
 $$
 
 具体而言，Jeτ 先暂存近期的观察、行动与反馈。到达写入时刻，一组状态嵌入在旧状态与近期交互的共同上下文中经过模型，生成新的跨层潜在表示；随后，近期的原始步骤退出缓存，新的状态留下。下一轮候选动作评分直接读取更新后的状态。随着任务继续，这一过程反复发生：新经历进入，旧状态参与生成，新的状态再接过历史。
