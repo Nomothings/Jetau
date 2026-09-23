@@ -112,8 +112,20 @@ All scripts honor `PYTHON=<interpreter>` and run every entry point as
 
 ## Results
 
-See `results/final_table.md` (4 strategies x 6 scenarios: step accuracy, mean
-CE, ms/step, best dev CE). *To be filled from the final runs — see results.*
+Step-level accuracy (full official test splits, teacher-forced) and official-protocol
+interactive metrics; see  and .
+
+| Task | No memory | Prompt memory (sliding) | **Jet-0.6B** | 
+|---|---:|---:|---:|
+| maze (completion, 64-step budget) | 0% | ~0% | **80%** (15.1 steps) |
+| snake (completion) | 0% | 0% | **88%** |
+| pokemon (battle win rate) | 3% | 1% | **48%** |
+| ALFWorld (interactive SR, unseen-134, <=50 steps) | 0% | (running) | **76.1%** |
+| WebShop (interactive reward / strict SR) | 0.37 / 10% | 0.40 / 12% | **0.67 / 43%** |
+| Mind2Web (step acc, official metric) | 0.132 | 0.133 | **0.631** |
+
+Trained-baseline arms (same data, updates, seed) are in flight; this table uses the
+training-free released checkpoint for the baselines.
 
 ## Limitations
 

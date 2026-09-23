@@ -1,0 +1,5019 @@
+{
+  "task": "webshop",
+  "protocol": "interactive closed-loop; official reward on buy; reward=0 if not bought within 10 actions",
+  "policy": "jet",
+  "model": "jet06_mix",
+  "split": "test",
+  "episodes": 500,
+  "max_actions": 10,
+  "reward_mean": 0.6606,
+  "reward_p50": 0.75,
+  "reward_min": 0.0,
+  "success_rate": 0.416,
+  "success_rate_soft07": 0.506,
+  "mean_actions": 3.62,
+  "buy_rate": 1.0,
+  "sec_per_episode": 0.947,
+  "per_episode": [
+    {
+      "episode_id": "webshop-test-0000",
+      "query_id": 0,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09PDP2SKW",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0001",
+      "query_id": 1,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0972Q1T8T",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0002",
+      "query_id": 2,
+      "reward": 0.075,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07K92RDV3",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0003",
+      "query_id": 3,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B06Y96MXJV",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0004",
+      "query_id": 4,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08Q9SCL49",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0005",
+      "query_id": 5,
+      "reward": 0.6,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07VXVMM6K",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0006",
+      "query_id": 6,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07B4KXQZV",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0007",
+      "query_id": 7,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B098ZDZSJK",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0008",
+      "query_id": 8,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09J4PRB13",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0009",
+      "query_id": 9,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09SLT7Z3V",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0010",
+      "query_id": 10,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0978Q1KK9",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0011",
+      "query_id": 11,
+      "reward": 0.4,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09R4MD33Z",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0012",
+      "query_id": 12,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B077XYYMKB",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0013",
+      "query_id": 13,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B000VOHH8I",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0014",
+      "query_id": 14,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0751MZBGL",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0015",
+      "query_id": 15,
+      "reward": 0.5,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08R635WXZ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0016",
+      "query_id": 16,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B091D87QMM",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0017",
+      "query_id": 17,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B077PR9TL4",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0018",
+      "query_id": 18,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09283BY6S",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0019",
+      "query_id": 19,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09PGWY4Q7",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0020",
+      "query_id": 20,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08PZ5PDDL",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0021",
+      "query_id": 21,
+      "reward": 0.0333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B071CDLM1Q",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0022",
+      "query_id": 22,
+      "reward": 0.0667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07BNY6TKQ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0023",
+      "query_id": 23,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09BCFH9ZK",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0024",
+      "query_id": 24,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00I83XF76",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0025",
+      "query_id": 25,
+      "reward": 0.6,
+      "actions": 6,
+      "bought": true,
+      "bought_asin": "B0049YMA9W",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0026",
+      "query_id": 26,
+      "reward": 0.6,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08BL9NG94",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0027",
+      "query_id": 27,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08HHMB7VL",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0028",
+      "query_id": 28,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09HQSGH1Z",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0029",
+      "query_id": 29,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08JQ5TLQV",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0030",
+      "query_id": 30,
+      "reward": 0.1,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00PG8HYF0",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0031",
+      "query_id": 31,
+      "reward": 0.75,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B07HHKYNX4",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0032",
+      "query_id": 32,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B085CD6YJQ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0033",
+      "query_id": 33,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B078HV1Y6J",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0034",
+      "query_id": 34,
+      "reward": 0.05,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0872DG5NK",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0035",
+      "query_id": 35,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09F8ZNC14",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0036",
+      "query_id": 36,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07MDMFDYW",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0037",
+      "query_id": 37,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08LLDM11C",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0038",
+      "query_id": 38,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0921XCPZF",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0039",
+      "query_id": 39,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09QCVCYVY",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0040",
+      "query_id": 40,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07G4HJR5V",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0041",
+      "query_id": 41,
+      "reward": 0.25,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09CZ4SRCF",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0042",
+      "query_id": 42,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B002VWK9I8",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0043",
+      "query_id": 43,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09SFYKT6D",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0044",
+      "query_id": 44,
+      "reward": 0.3333,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09NNX1HLD",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0045",
+      "query_id": 45,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B099PS6R7Y",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0046",
+      "query_id": 46,
+      "reward": 0.5,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0978VPWGL",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0047",
+      "query_id": 47,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B000R30X2A",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0048",
+      "query_id": 48,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08J4CF6D1",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0049",
+      "query_id": 49,
+      "reward": 0.1,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07YVQYMGG",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0050",
+      "query_id": 50,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B007LV1MXU",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0051",
+      "query_id": 51,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B073WCD5Z1",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0052",
+      "query_id": 52,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B093ZNDMMS",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0053",
+      "query_id": 53,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08Y6VZFT6",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0054",
+      "query_id": 54,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B091TZTD5G",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0055",
+      "query_id": 55,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0759H8JCH",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0056",
+      "query_id": 56,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07JX7QM8G",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0057",
+      "query_id": 57,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07QW1G8MW",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0058",
+      "query_id": 58,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01MZ82PKM",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0059",
+      "query_id": 59,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01LA6FDOK",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0060",
+      "query_id": 60,
+      "reward": 0.75,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09QQ16D9H",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0061",
+      "query_id": 61,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B092VGFJY3",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0062",
+      "query_id": 62,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07ST3YB1W",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0063",
+      "query_id": 63,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B08SQHTMPR",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0064",
+      "query_id": 64,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09N9M4NTJ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0065",
+      "query_id": 65,
+      "reward": 0.75,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B07M6LWR7C",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0066",
+      "query_id": 66,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B083Z8JXF3",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0067",
+      "query_id": 67,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0927MLTZZ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0068",
+      "query_id": 68,
+      "reward": 0.5,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0999NXD1N",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0069",
+      "query_id": 69,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B099FC5VFM",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0070",
+      "query_id": 70,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08W533DQL",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0071",
+      "query_id": 71,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B00U3TE9ZU",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0072",
+      "query_id": 72,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09KTV71R2",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0073",
+      "query_id": 73,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09NDJV2R6",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0074",
+      "query_id": 74,
+      "reward": 0.05,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09R9NTFCM",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0075",
+      "query_id": 75,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B01IPZCPXQ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0076",
+      "query_id": 76,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08613274T",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0077",
+      "query_id": 77,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0948JM5FB",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0078",
+      "query_id": 78,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09SY49KNG",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0079",
+      "query_id": 79,
+      "reward": 0.05,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0731B56FJ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0080",
+      "query_id": 80,
+      "reward": 0.6,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B094R9F46T",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0081",
+      "query_id": 81,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B093D3GL6X",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0082",
+      "query_id": 82,
+      "reward": 0.0333,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0913M7MPM",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0083",
+      "query_id": 83,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07QWSJWWX",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0084",
+      "query_id": 84,
+      "reward": 0.4,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08CMVKSXX",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0085",
+      "query_id": 85,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B085QMTTSC",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0086",
+      "query_id": 86,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B001CMRVH0",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0087",
+      "query_id": 87,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0824CBD9P",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0088",
+      "query_id": 88,
+      "reward": 0.6667,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09K432WXZ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0089",
+      "query_id": 89,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B08FM6347F",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0090",
+      "query_id": 90,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07VP4KL4S",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0091",
+      "query_id": 91,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09743DFJC",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0092",
+      "query_id": 92,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09Q2SDRNL",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0093",
+      "query_id": 93,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0894K8HST",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0094",
+      "query_id": 94,
+      "reward": 0.3333,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09P87PM36",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0095",
+      "query_id": 95,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00MJW2X8E",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0096",
+      "query_id": 96,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09PMXXBGZ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0097",
+      "query_id": 97,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09PRGMGTC",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0098",
+      "query_id": 98,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00005JTW8",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0099",
+      "query_id": 99,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0963D2H5J",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0100",
+      "query_id": 100,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07LB2R1GX",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0101",
+      "query_id": 101,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09PYFGHJH",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0102",
+      "query_id": 102,
+      "reward": 0.5,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09PYL9W9R",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0103",
+      "query_id": 103,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09KZDM7VX",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0104",
+      "query_id": 104,
+      "reward": 0.8,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B08CJ2BW1G",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0105",
+      "query_id": 105,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09SG9M147",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0106",
+      "query_id": 106,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09436KPGN",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0107",
+      "query_id": 107,
+      "reward": 0.125,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09GFCK24V",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0108",
+      "query_id": 108,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08B68MKYN",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0109",
+      "query_id": 109,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B099Z5S443",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0110",
+      "query_id": 110,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B081YTDBG9",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0111",
+      "query_id": 111,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09LTWYH48",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0112",
+      "query_id": 112,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09CHBHDWW",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0113",
+      "query_id": 113,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B08BR7HK7L",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0114",
+      "query_id": 114,
+      "reward": 0.8,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09LH2827W",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0115",
+      "query_id": 115,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09Q6B2LPG",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0116",
+      "query_id": 116,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0918MVYBC",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0117",
+      "query_id": 117,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09C1K95LB",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0118",
+      "query_id": 118,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08F1V4JTR",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0119",
+      "query_id": 119,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08T9R66W4",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0120",
+      "query_id": 120,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08FLCZSQJ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0121",
+      "query_id": 121,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09QRXYJ7C",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0122",
+      "query_id": 122,
+      "reward": 0.0667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07VQ1V3R7",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0123",
+      "query_id": 123,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09M34J5W1",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0124",
+      "query_id": 124,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B083XPLGC3",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0125",
+      "query_id": 125,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07BHH3RJ2",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0126",
+      "query_id": 126,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B01MXL8AVD",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0127",
+      "query_id": 127,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0742LVGX7",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0128",
+      "query_id": 128,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B005S4J2OS",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0129",
+      "query_id": 129,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09PHLSFCP",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0130",
+      "query_id": 130,
+      "reward": 0.5,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0999NXD1N",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0131",
+      "query_id": 131,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09C8VRJYD",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0132",
+      "query_id": 132,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B086FXMWDM",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0133",
+      "query_id": 133,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07GFVL7GB",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0134",
+      "query_id": 134,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08SSG514G",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0135",
+      "query_id": 135,
+      "reward": 0.5,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09KP78G37",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0136",
+      "query_id": 136,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08VJB28BL",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0137",
+      "query_id": 137,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B01MZ2CH6O",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0138",
+      "query_id": 138,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07HFHNH6K",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0139",
+      "query_id": 139,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B08B1MCFKL",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0140",
+      "query_id": 140,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08S479Y9L",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0141",
+      "query_id": 141,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B078HC8TBZ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0142",
+      "query_id": 142,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B075S92QWM",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0143",
+      "query_id": 143,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09KLS44DG",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0144",
+      "query_id": 144,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08XQ74QNX",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0145",
+      "query_id": 145,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08T21G734",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0146",
+      "query_id": 146,
+      "reward": 0.75,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B08SHSFXF6",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0147",
+      "query_id": 147,
+      "reward": 0.075,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00N2ITZN0",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0148",
+      "query_id": 148,
+      "reward": 0.8,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B073HGKQDC",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0149",
+      "query_id": 149,
+      "reward": 0.0667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B099KWKY36",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0150",
+      "query_id": 150,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07WC91JVJ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0151",
+      "query_id": 151,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B098PH8LVY",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0152",
+      "query_id": 152,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01LF71A2I",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0153",
+      "query_id": 153,
+      "reward": 0.6,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B079B3266S",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0154",
+      "query_id": 154,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B07ZZRTSKM",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0155",
+      "query_id": 155,
+      "reward": 0.8,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09BF2F9ST",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0156",
+      "query_id": 156,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09KJJCWZF",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0157",
+      "query_id": 157,
+      "reward": 0.5,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09JMV9DHX",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0158",
+      "query_id": 158,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B085NL6KC1",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0159",
+      "query_id": 159,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B07S523DJC",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0160",
+      "query_id": 160,
+      "reward": 0.2,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08VFRQ2DY",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0161",
+      "query_id": 161,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09DSCM9TL",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0162",
+      "query_id": 162,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B075QHVT8K",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0163",
+      "query_id": 163,
+      "reward": 0.3333,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09PNLX519",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0164",
+      "query_id": 164,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08ZNFXRSD",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0165",
+      "query_id": 165,
+      "reward": 0.8,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09RZRT4QD",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0166",
+      "query_id": 166,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09Q93TQXM",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0167",
+      "query_id": 167,
+      "reward": 0.4,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09NTMJ7D3",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0168",
+      "query_id": 168,
+      "reward": 0.6,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09MYT5JKW",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0169",
+      "query_id": 169,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0792QVCH8",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0170",
+      "query_id": 170,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07992CMQT",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0171",
+      "query_id": 171,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B096G2WQ9H",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0172",
+      "query_id": 172,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08C7BGKF4",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0173",
+      "query_id": 173,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01MT5PQ9L",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0174",
+      "query_id": 174,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09BKNV2W5",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0175",
+      "query_id": 175,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07MG8XM7R",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0176",
+      "query_id": 176,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08DLL59WC",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0177",
+      "query_id": 177,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07PJW2PJS",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0178",
+      "query_id": 178,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B00JGXF99E",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0179",
+      "query_id": 179,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00IMX6ZP6",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0180",
+      "query_id": 180,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07KG93KMK",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0181",
+      "query_id": 181,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0991G29MK",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0182",
+      "query_id": 182,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B083GGC2N9",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0183",
+      "query_id": 183,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B08XM81S7M",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0184",
+      "query_id": 184,
+      "reward": 0.1,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07JJVQD2V",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0185",
+      "query_id": 185,
+      "reward": 0.025,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09FTDY1ZM",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0186",
+      "query_id": 186,
+      "reward": 0.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07TLNZL9W",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0187",
+      "query_id": 187,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07K5HC8DK",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0188",
+      "query_id": 188,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07Z5Z66DZ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0189",
+      "query_id": 189,
+      "reward": 0.4,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09BDVWLQF",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0190",
+      "query_id": 190,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07NWGQHKY",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0191",
+      "query_id": 191,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0892JYS9N",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0192",
+      "query_id": 192,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0852XB8Y7",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0193",
+      "query_id": 193,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B076RFDSBG",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0194",
+      "query_id": 194,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B078HBH61G",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0195",
+      "query_id": 195,
+      "reward": 0.0167,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00NCCSIRK",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0196",
+      "query_id": 196,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09L1G6H5Z",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0197",
+      "query_id": 197,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0823FF5ZV",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0198",
+      "query_id": 198,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07PBTNQ11",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0199",
+      "query_id": 199,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B001IZM92I",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0200",
+      "query_id": 200,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B07SBCQXXG",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0201",
+      "query_id": 201,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B01HUW7XIM",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0202",
+      "query_id": 202,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B003C0GADQ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0203",
+      "query_id": 203,
+      "reward": 0.2,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B099DQPXZX",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0204",
+      "query_id": 204,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09PG5T7LC",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0205",
+      "query_id": 205,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B091Q1Y26G",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0206",
+      "query_id": 206,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09Q57WQ9G",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0207",
+      "query_id": 207,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08QYZ6PK8",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0208",
+      "query_id": 208,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B06WW7RQ35",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0209",
+      "query_id": 209,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08R92G3DR",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0210",
+      "query_id": 210,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B091DLJ4B5",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0211",
+      "query_id": 211,
+      "reward": 0.4,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08B87QY7C",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0212",
+      "query_id": 212,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09KQNH5C6",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0213",
+      "query_id": 213,
+      "reward": 0.125,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07SW3QR2W",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0214",
+      "query_id": 214,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B085HM4TCD",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0215",
+      "query_id": 215,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07L2L64XL",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0216",
+      "query_id": 216,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B074338PG3",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0217",
+      "query_id": 217,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B094D9FD71",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0218",
+      "query_id": 218,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08B191Y9R",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0219",
+      "query_id": 219,
+      "reward": 0.4,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B098NCCPPC",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0220",
+      "query_id": 220,
+      "reward": 0.025,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08FJJP1Q1",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0221",
+      "query_id": 221,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07SRDFQGJ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0222",
+      "query_id": 222,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09MW7P4PH",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0223",
+      "query_id": 223,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07PT3T483",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0224",
+      "query_id": 224,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B085686P5N",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0225",
+      "query_id": 225,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08X6YJ1CG",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0226",
+      "query_id": 226,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B07DKVQTXT",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0227",
+      "query_id": 227,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09S5DXQK2",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0228",
+      "query_id": 228,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08GLK4PGV",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0229",
+      "query_id": 229,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B082NLH5YJ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0230",
+      "query_id": 230,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0872HMTXX",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0231",
+      "query_id": 231,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08228LTKC",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0232",
+      "query_id": 232,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07PRK6SCS",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0233",
+      "query_id": 233,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08FBK3N18",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0234",
+      "query_id": 234,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B00N49FECS",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0235",
+      "query_id": 235,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09K3WM82N",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0236",
+      "query_id": 236,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08XVP2NXV",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0237",
+      "query_id": 237,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B000PYOTGC",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0238",
+      "query_id": 238,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07PK1NZY6",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0239",
+      "query_id": 239,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09M9QX1M9",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0240",
+      "query_id": 240,
+      "reward": 0.4,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B096NPRRNX",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0241",
+      "query_id": 241,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09D77KB16",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0242",
+      "query_id": 242,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09T6SRMT5",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0243",
+      "query_id": 243,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09PRCPWK7",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0244",
+      "query_id": 244,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07SVXSN9W",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0245",
+      "query_id": 245,
+      "reward": 0.75,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09293PTPM",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0246",
+      "query_id": 246,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08B11H59W",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0247",
+      "query_id": 247,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09C7Z86X4",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0248",
+      "query_id": 248,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B0007SMLUM",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0249",
+      "query_id": 249,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B06X9CYGQY",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0250",
+      "query_id": 250,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09PFP98PG",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0251",
+      "query_id": 251,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09QXB4JC6",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0252",
+      "query_id": 252,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08781CRRS",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0253",
+      "query_id": 253,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B093R27X9G",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0254",
+      "query_id": 254,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09M7FC69C",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0255",
+      "query_id": 255,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B095BV6LP8",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0256",
+      "query_id": 256,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08C2FVNQ9",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0257",
+      "query_id": 257,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08RJ1678V",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0258",
+      "query_id": 258,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09S6S7LG1",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0259",
+      "query_id": 259,
+      "reward": 0.1667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00FI1TGOW",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0260",
+      "query_id": 260,
+      "reward": 0.1,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B095WH6ZSV",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0261",
+      "query_id": 261,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B007XAHUHQ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0262",
+      "query_id": 262,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07G44C5M6",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0263",
+      "query_id": 263,
+      "reward": 0.6,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B098WD4L8M",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0264",
+      "query_id": 264,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08WYY37SB",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0265",
+      "query_id": 265,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01E4V877S",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0266",
+      "query_id": 266,
+      "reward": 0.1,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09LRD2PV3",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0267",
+      "query_id": 267,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B086VNCP37",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0268",
+      "query_id": 268,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0918MVYBC",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0269",
+      "query_id": 269,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09PRFGCN3",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0270",
+      "query_id": 270,
+      "reward": 0.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B088722H6W",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0271",
+      "query_id": 271,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08YP5CFGG",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0272",
+      "query_id": 272,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07SXJHCJY",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0273",
+      "query_id": 273,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07MLH8SHQ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0274",
+      "query_id": 274,
+      "reward": 0.025,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01I9D2MXW",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0275",
+      "query_id": 275,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09D6GWL11",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0276",
+      "query_id": 276,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08H1Y41XM",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0277",
+      "query_id": 277,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B07N34HVW3",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0278",
+      "query_id": 278,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0924HBQBF",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0279",
+      "query_id": 279,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08BS6R8MB",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0280",
+      "query_id": 280,
+      "reward": 0.8,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B07WLYKJB6",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0281",
+      "query_id": 281,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B081LK66Q3",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0282",
+      "query_id": 282,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08HGVMJ2D",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0283",
+      "query_id": 283,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08JMCJ1QX",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0284",
+      "query_id": 284,
+      "reward": 0.0333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B092STNK6F",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0285",
+      "query_id": 285,
+      "reward": 0.02,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08QYMTQRX",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0286",
+      "query_id": 286,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09SKZ2XFN",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0287",
+      "query_id": 287,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08WP3X31Q",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0288",
+      "query_id": 288,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08D358TSX",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0289",
+      "query_id": 289,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09MJWT8L8",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0290",
+      "query_id": 290,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07NH3Q1VJ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0291",
+      "query_id": 291,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08JV29PWM",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0292",
+      "query_id": 292,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09Q92Q4Y4",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0293",
+      "query_id": 293,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09SFC3ZLS",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0294",
+      "query_id": 294,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B095C5CZL3",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0295",
+      "query_id": 295,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09LGYLN2X",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0296",
+      "query_id": 296,
+      "reward": 0.5,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B082MGW89R",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0297",
+      "query_id": 297,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08S3NP7W9",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0298",
+      "query_id": 298,
+      "reward": 0.2,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09KFH37Z5",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0299",
+      "query_id": 299,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07TN3W1KX",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0300",
+      "query_id": 300,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07VNPHTB2",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0301",
+      "query_id": 301,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B083VZN11N",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0302",
+      "query_id": 302,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B087N61YT8",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0303",
+      "query_id": 303,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08LCXK1YF",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0304",
+      "query_id": 304,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09Q92Q4Y4",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0305",
+      "query_id": 305,
+      "reward": 0.075,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07215YT9K",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0306",
+      "query_id": 306,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09NDWF94G",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0307",
+      "query_id": 307,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09QRNQCFL",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0308",
+      "query_id": 308,
+      "reward": 0.5,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B00VO4KYV6",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0309",
+      "query_id": 309,
+      "reward": 0.1,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B075H1PSBR",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0310",
+      "query_id": 310,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09B52GC69",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0311",
+      "query_id": 311,
+      "reward": 0.25,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09T6HTMBP",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0312",
+      "query_id": 312,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B087ZCPK4N",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0313",
+      "query_id": 313,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09LYSH4YL",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0314",
+      "query_id": 314,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09R1T216X",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0315",
+      "query_id": 315,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0929HRR17",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0316",
+      "query_id": 316,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00LI3SBU4",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0317",
+      "query_id": 317,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B093PR8QZJ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0318",
+      "query_id": 318,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09S157JLN",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0319",
+      "query_id": 319,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08HLZG1L5",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0320",
+      "query_id": 320,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B016KWUP3I",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0321",
+      "query_id": 321,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09928J5CH",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0322",
+      "query_id": 322,
+      "reward": 0.6,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B084YYXLWG",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0323",
+      "query_id": 323,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07BZ4KQ1T",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0324",
+      "query_id": 324,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B013JHFK82",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0325",
+      "query_id": 325,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09MWB5DQG",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0326",
+      "query_id": 326,
+      "reward": 0.1,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09PGQ7TV8",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0327",
+      "query_id": 327,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08GKK6G2X",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0328",
+      "query_id": 328,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08FBK3N18",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0329",
+      "query_id": 329,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08W7X86D4",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0330",
+      "query_id": 330,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07ZW2WP2S",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0331",
+      "query_id": 331,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B01LR0OOBC",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0332",
+      "query_id": 332,
+      "reward": 0.0667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00KMC3BGG",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0333",
+      "query_id": 333,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09MZLPKFJ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0334",
+      "query_id": 334,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B01676307A",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0335",
+      "query_id": 335,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08GYF3H6N",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0336",
+      "query_id": 336,
+      "reward": 0.75,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B07PVX7ZXM",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0337",
+      "query_id": 337,
+      "reward": 0.0667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08QD45PHZ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0338",
+      "query_id": 338,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09NZDB484",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0339",
+      "query_id": 339,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09MRYN7WH",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0340",
+      "query_id": 340,
+      "reward": 0.4,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01FX3K7T2",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0341",
+      "query_id": 341,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09MVYBTFP",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0342",
+      "query_id": 342,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08X172LDZ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0343",
+      "query_id": 343,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09RWQT4DC",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0344",
+      "query_id": 344,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09QJ6S2L6",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0345",
+      "query_id": 345,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09G2X4GDX",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0346",
+      "query_id": 346,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08QYPJMQ3",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0347",
+      "query_id": 347,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07WHJ8ZLX",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0348",
+      "query_id": 348,
+      "reward": 1.0,
+      "actions": 6,
+      "bought": true,
+      "bought_asin": "B09GR8JT1W",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0349",
+      "query_id": 349,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09ST6VY7R",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0350",
+      "query_id": 350,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B079HR1M5W",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0351",
+      "query_id": 351,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09R266CPW",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0352",
+      "query_id": 352,
+      "reward": 0.3333,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09N3QXRM4",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0353",
+      "query_id": 353,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08CSX61Z2",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0354",
+      "query_id": 354,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09KBSGMBB",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0355",
+      "query_id": 355,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00J5RILL4",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0356",
+      "query_id": 356,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0788RQBCF",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0357",
+      "query_id": 357,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00T7JEX44",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0358",
+      "query_id": 358,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07RWKTZ6L",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0359",
+      "query_id": 359,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B092VRBMN3",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0360",
+      "query_id": 360,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09SBDSP6Q",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0361",
+      "query_id": 361,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08RDHLCP2",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0362",
+      "query_id": 362,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09L12B3YF",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0363",
+      "query_id": 363,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09K3X98SD",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0364",
+      "query_id": 364,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08VHJ7QQJ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0365",
+      "query_id": 365,
+      "reward": 0.1667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B096G2WQ9H",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0366",
+      "query_id": 366,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08ZYCVJMK",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0367",
+      "query_id": 367,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09PLDZDTQ",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0368",
+      "query_id": 368,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07TZ4F4NQ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0369",
+      "query_id": 369,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09NZJSMQS",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0370",
+      "query_id": 370,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09QGHH968",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0371",
+      "query_id": 371,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09RDXNHYG",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0372",
+      "query_id": 372,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07219NXT4",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0373",
+      "query_id": 373,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09QRVDTG1",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0374",
+      "query_id": 374,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08F8K9ZMK",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0375",
+      "query_id": 375,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09N9QN4PB",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0376",
+      "query_id": 376,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08HQ7QHP7",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0377",
+      "query_id": 377,
+      "reward": 0.1,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09RVX5TT7",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0378",
+      "query_id": 378,
+      "reward": 0.25,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0091UGUEK",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0379",
+      "query_id": 379,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07CT5Q656",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0380",
+      "query_id": 380,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08169JG35",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0381",
+      "query_id": 381,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B074VFLXWN",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0382",
+      "query_id": 382,
+      "reward": 0.1,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07C8P13ZH",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0383",
+      "query_id": 383,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07Q5YFTYC",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0384",
+      "query_id": 384,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07VV485TM",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0385",
+      "query_id": 385,
+      "reward": 0.75,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09MLDKJ4G",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0386",
+      "query_id": 386,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09NR8VWTY",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0387",
+      "query_id": 387,
+      "reward": 0.4,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09R7K6T8T",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0388",
+      "query_id": 388,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B095VX97GN",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0389",
+      "query_id": 389,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B098JKB4Y9",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0390",
+      "query_id": 390,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B000ILLX3Y",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0391",
+      "query_id": 391,
+      "reward": 0.05,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B097DM97CS",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0392",
+      "query_id": 392,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08MJR5FGS",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0393",
+      "query_id": 393,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09NYF59W5",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0394",
+      "query_id": 394,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09PB9NFWJ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0395",
+      "query_id": 395,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09QM85QH6",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0396",
+      "query_id": 396,
+      "reward": 0.6,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B017KR0A8W",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0397",
+      "query_id": 397,
+      "reward": 0.1,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00Y1FX92G",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0398",
+      "query_id": 398,
+      "reward": 0.5,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B086L37RV1",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0399",
+      "query_id": 399,
+      "reward": 0.375,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B01LYL5CZL",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0400",
+      "query_id": 400,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07XJCZ817",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0401",
+      "query_id": 401,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09PH95SSN",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0402",
+      "query_id": 402,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08DTWTKTY",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0403",
+      "query_id": 403,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08LND5CJZ",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0404",
+      "query_id": 404,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08XJF919X",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0405",
+      "query_id": 405,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B00RM5NPAS",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0406",
+      "query_id": 406,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B003KPBV9G",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0407",
+      "query_id": 407,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B0894STBLG",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0408",
+      "query_id": 408,
+      "reward": 0.05,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09L5QHFB3",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0409",
+      "query_id": 409,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07ZK4J929",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0410",
+      "query_id": 410,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0777WVCRD",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0411",
+      "query_id": 411,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09R4V5J3R",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0412",
+      "query_id": 412,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08HZBXBV1",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0413",
+      "query_id": 413,
+      "reward": 0.5,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B079N3VLRJ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0414",
+      "query_id": 414,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B085DP1X9F",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0415",
+      "query_id": 415,
+      "reward": 0.1667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07ZHKHS95",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0416",
+      "query_id": 416,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09JJLR8N2",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0417",
+      "query_id": 417,
+      "reward": 0.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B076ZK8NGR",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0418",
+      "query_id": 418,
+      "reward": 0.8,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B00BOEEX04",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0419",
+      "query_id": 419,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0953MQLNL",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0420",
+      "query_id": 420,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09NW5K7R9",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0421",
+      "query_id": 421,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07GWH4SDR",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0422",
+      "query_id": 422,
+      "reward": 0.125,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07JM3G37S",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0423",
+      "query_id": 423,
+      "reward": 0.02,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B089Z43Q8H",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0424",
+      "query_id": 424,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09S65FB4N",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0425",
+      "query_id": 425,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B096N4HLK7",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0426",
+      "query_id": 426,
+      "reward": 0.05,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07CBKM6TL",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0427",
+      "query_id": 427,
+      "reward": 0.1,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B089SJ5DLM",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0428",
+      "query_id": 428,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B0962P6LCS",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0429",
+      "query_id": 429,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B00P1Q5JHW",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0430",
+      "query_id": 430,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B00WVLVDP2",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0431",
+      "query_id": 431,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0746FSYRB",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0432",
+      "query_id": 432,
+      "reward": 0.1667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0967T22YR",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0433",
+      "query_id": 433,
+      "reward": 0.05,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07GNRQPLK",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0434",
+      "query_id": 434,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08RBMJYDF",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0435",
+      "query_id": 435,
+      "reward": 0.8,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B01FX3K7T2",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0436",
+      "query_id": 436,
+      "reward": 0.75,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B084FWQF1F",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0437",
+      "query_id": 437,
+      "reward": 0.8,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B00WFDK8L6",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0438",
+      "query_id": 438,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07K5HC8DK",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0439",
+      "query_id": 439,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09F9L4GTH",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0440",
+      "query_id": 440,
+      "reward": 0.0667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B094QNTTH2",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0441",
+      "query_id": 441,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07FBLG5Q2",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0442",
+      "query_id": 442,
+      "reward": 0.3333,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B000HTKOMS",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0443",
+      "query_id": 443,
+      "reward": 0.4,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01MSKUTNP",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0444",
+      "query_id": 444,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B07CQ96G4F",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0445",
+      "query_id": 445,
+      "reward": 0.25,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B096XKHW64",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0446",
+      "query_id": 446,
+      "reward": 0.05,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08FBGGP37",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0447",
+      "query_id": 447,
+      "reward": 0.06,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09P2RBGRR",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0448",
+      "query_id": 448,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07BGYT1WD",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0449",
+      "query_id": 449,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09RHQFJNJ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0450",
+      "query_id": 450,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B08S7MD3HY",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0451",
+      "query_id": 451,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B00PO914RU",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0452",
+      "query_id": 452,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08LND5CJZ",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0453",
+      "query_id": 453,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B098XJX4JL",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0454",
+      "query_id": 454,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01LBX6YV8",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0455",
+      "query_id": 455,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08FC4RS18",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0456",
+      "query_id": 456,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08PN4HT3W",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0457",
+      "query_id": 457,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09BV4SJC2",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0458",
+      "query_id": 458,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01LTI98E0",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0459",
+      "query_id": 459,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09MTXYTTK",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0460",
+      "query_id": 460,
+      "reward": 0.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B097S4SBB7",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0461",
+      "query_id": 461,
+      "reward": 0.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09MD8XBXB",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0462",
+      "query_id": 462,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09RV3SFJM",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0463",
+      "query_id": 463,
+      "reward": 0.6,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09L4R2L8Y",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0464",
+      "query_id": 464,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09ST7RWVK",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0465",
+      "query_id": 465,
+      "reward": 0.75,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B0932RMGMW",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0466",
+      "query_id": 466,
+      "reward": 1.0,
+      "actions": 5,
+      "bought": true,
+      "bought_asin": "B09R4LF76T",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0467",
+      "query_id": 467,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B095YMPVK9",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0468",
+      "query_id": 468,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09FGSDMSN",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0469",
+      "query_id": 469,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09SCT5XZT",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0470",
+      "query_id": 470,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B07ZC95D4Q",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0471",
+      "query_id": 471,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09QC9H4S6",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0472",
+      "query_id": 472,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08LDHZLPP",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0473",
+      "query_id": 473,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B087D7HNNF",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0474",
+      "query_id": 474,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B088WG813M",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0475",
+      "query_id": 475,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B091DNHMJS",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0476",
+      "query_id": 476,
+      "reward": 0.75,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08DNC33W4",
+      "success": false,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0477",
+      "query_id": 477,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08DQX3HXF",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0478",
+      "query_id": 478,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B072QXC79R",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0479",
+      "query_id": 479,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09SHWQYQM",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0480",
+      "query_id": 480,
+      "reward": 0.025,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01LYNEUOZ",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0481",
+      "query_id": 481,
+      "reward": 0.5,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B01K8OQRT0",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0482",
+      "query_id": 482,
+      "reward": 0.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07VPR4HN9",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0483",
+      "query_id": 483,
+      "reward": 0.25,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07CHJ9C7L",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0484",
+      "query_id": 484,
+      "reward": 1.0,
+      "actions": 6,
+      "bought": true,
+      "bought_asin": "B09QRXFB5Z",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0485",
+      "query_id": 485,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B093YSS6D1",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0486",
+      "query_id": 486,
+      "reward": 0.025,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B076BQ1QP2",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0487",
+      "query_id": 487,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B078JHLSWT",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0488",
+      "query_id": 488,
+      "reward": 0.6667,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09K7LLWSG",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0489",
+      "query_id": 489,
+      "reward": 0.3333,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B081QQ7FWM",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0490",
+      "query_id": 490,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B08HJD4J2T",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0491",
+      "query_id": 491,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B078WTD3JS",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0492",
+      "query_id": 492,
+      "reward": 0.6667,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09NPNDKQV",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0493",
+      "query_id": 493,
+      "reward": 0.05,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B09Q8C4HC6",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0494",
+      "query_id": 494,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B09PV4HGFN",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0495",
+      "query_id": 495,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B084NVN1J6",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0496",
+      "query_id": 496,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B091F3RWX8",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0497",
+      "query_id": 497,
+      "reward": 0.4,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B07C8H3LH4",
+      "success": false,
+      "success_soft": false
+    },
+    {
+      "episode_id": "webshop-test-0498",
+      "query_id": 498,
+      "reward": 1.0,
+      "actions": 3,
+      "bought": true,
+      "bought_asin": "B08DR1NNJ4",
+      "success": true,
+      "success_soft": true
+    },
+    {
+      "episode_id": "webshop-test-0499",
+      "query_id": 499,
+      "reward": 1.0,
+      "actions": 4,
+      "bought": true,
+      "bought_asin": "B004LKAO2E",
+      "success": true,
+      "success_soft": true
+    }
+  ]
+}

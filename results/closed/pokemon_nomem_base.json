@@ -1,0 +1,10 @@
+{
+  "task": "pokemon",
+  "policy": "nomem",
+  "model": "base",
+  "episodes": 100,
+  "success_rate": 0.03,
+  "mean_steps_all": 18.34,
+  "mean_steps_success": 21.0,
+  "sec_per_episode": 6.164373791068792
+}

@@ -1,0 +1,10 @@
+{
+  "task": "snake",
+  "policy": "promptmem",
+  "model": "base",
+  "episodes": 50,
+  "success_rate": 0.0,
+  "mean_steps_all": 4.0,
+  "mean_steps_success": null,
+  "sec_per_episode": 0.42413226031698287
+}

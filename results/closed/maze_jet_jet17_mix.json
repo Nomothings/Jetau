@@ -1,0 +1,10 @@
+{
+  "task": "maze",
+  "policy": "jet",
+  "model": "jet17_mix",
+  "episodes": 60,
+  "success_rate": 0.03333333333333333,
+  "mean_steps_all": 63.6,
+  "mean_steps_success": 52.0,
+  "sec_per_episode": 13.295040922813739
+}

@@ -1,0 +1,45 @@
+{
+  "task": "alfworld",
+  "split": "valid_unseen",
+  "policy": "jet",
+  "model": "af_jet",
+  "episodes": 134,
+  "max_steps": 50,
+  "success_rate": 0.7611940298507462,
+  "successes": 102,
+  "mean_steps_all": 19.21641791044776,
+  "mean_steps_success": 9.558823529411764,
+  "by_task_type": {
+    "look_at_obj_in_light": {
+      "n": 18,
+      "success_rate": 0.8888888888888888,
+      "mean_steps": 9.277777777777779
+    },
+    "pick_and_place_simple": {
+      "n": 24,
+      "success_rate": 0.7083333333333334,
+      "mean_steps": 21.958333333333332
+    },
+    "pick_clean_then_place_in_recep": {
+      "n": 31,
+      "success_rate": 0.9032258064516129,
+      "mean_steps": 15.290322580645162
+    },
+    "pick_cool_then_place_in_recep": {
+      "n": 21,
+      "success_rate": 0.7142857142857143,
+      "mean_steps": 19.523809523809526
+    },
+    "pick_heat_then_place_in_recep": {
+      "n": 23,
+      "success_rate": 0.6086956521739131,
+      "mean_steps": 27.347826086956523
+    },
+    "pick_two_obj_and_place": {
+      "n": 17,
+      "success_rate": 0.7058823529411765,
+      "mean_steps": 21.647058823529413
+    }
+  },
+  "sec_per_episode": 5.414203613492618
+}

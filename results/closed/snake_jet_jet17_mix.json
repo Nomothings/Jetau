@@ -1,0 +1,10 @@
+{
+  "task": "snake",
+  "policy": "jet",
+  "model": "jet17_mix",
+  "episodes": 50,
+  "success_rate": 0.0,
+  "mean_steps_all": 5.28,
+  "mean_steps_success": null,
+  "sec_per_episode": 1.3808600285183639
+}

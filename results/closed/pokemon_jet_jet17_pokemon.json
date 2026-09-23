@@ -1,0 +1,10 @@
+{
+  "task": "pokemon",
+  "policy": "jet",
+  "model": "jet17_pokemon",
+  "episodes": 100,
+  "success_rate": 0.5,
+  "mean_steps_all": 16.52,
+  "mean_steps_success": 15.38,
+  "sec_per_episode": 13.344285502349958
+}

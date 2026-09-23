@@ -1,0 +1,10 @@
+{
+  "task": "pokemon",
+  "policy": "promptmem",
+  "model": "base",
+  "episodes": 100,
+  "success_rate": 0.01,
+  "mean_steps_all": 18.42,
+  "mean_steps_success": 17.0,
+  "sec_per_episode": 75.22470704249106
+}
